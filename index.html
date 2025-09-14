@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ECG Nexus — Tus ideas, nuestra pasión por hacerlas realidad</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>ECG Nexus</h1>
+      <p class="slogan">Tus ideas, nuestra pasión por hacerlas realidad</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="perfil card">
+      <img src="foto.jpg" alt="Emanuel Camacho" class="foto"/>
+      <h2>Hola — Soy Emanuel</h2>
+      <p>En <strong>ECG Nexus</strong> ayudamos a convertir ideas en proyectos reales, creativos y profesionales — para artistas, profesionistas, empresas y organizaciones de todo tipo.</p>
+    </section>
+
+    <section class="paquetes card">
+      <h2>Nuestros Paquetes</h2>
+
+      <div class="grid">
+        <!-- Paquete Básico -->
+        <div class="pkg">
+          <h3>Paquete Básico</h3>
+          <p>Concepto creativo, guion y documento de entrega. Ideal si buscas una idea profesional sin inversión en plataformas.</p>
+          <p class="price">Precio PayPal: <strong>MXN 1,565.85*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 1,520*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~30 días*</p>
+          <a class="btn" href="#" onclick="pay('Básico',1565.85)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Básico',1520)">Pagar por transferencia</button>
+        </div>
+
+        <!-- Paquete Intermedio -->
+        <div class="pkg">
+          <h3>Paquete Intermedio</h3>
+          <p>Incluye inversión para mejoras en plataformas y entregas más rápidas.</p>
+          <p class="price">Precio PayPal: <strong>MXN 4,168.66*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 4,140*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~14 días*</p>
+          <a class="btn" href="#" onclick="pay('Intermedio',4168.66)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Intermedio',4140)">Pagar por transferencia</button>
+        </div>
+
+        <!-- Paquete Plus -->
+        <div class="pkg">
+          <h3>Paquete Plus</h3>
+          <p>Mejoras constantes, contenido avanzado y entrega prioritaria.</p>
+          <p class="price">Precio PayPal: <strong>MXN 8,333.16*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 8,310*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~7 días*</p>
+          <a class="btn" href="#" onclick="pay('Plus',8333.16)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
+        </div>
+      </div>
+
+      <p class="small">*Tiempos de entrega aproximados. Sujetos al pago del paquete y al volumen de trabajo recibido.</p>
+      <p class="small">*Precios calculados para cubrir la comisión estimada de PayPal o comisión mínima de transferencia.</p>
+    </section>
+
+    <section class="contacto card">
+      <h2>Contacto y pagos</h2>
+      <p>📧 Email: <a href="mailto:REPLACE_EMAIL">REPLACE_EMAIL</a></p>
+      <p>📱 WhatsApp: <span id="whatsapp">REPLACE_PHONE</span></p>
+
+      <h3>Pago por PayPal (recomendado)</h3>
+      <p>Usa mi enlace PayPal: <strong id="paypalLink">REPLACE_PAYPAL_LINK</strong></p>
+      <p class="small">Si pagas con PayPal, el sistema aplica una comisión. Los precios ya incluyen la comisión estimada para que sea rentable.</p>
+
+      <h3>Pago por transferencia / depósito directo</h3>
+      <p class="small">Si prefieres depósito o transferencia, completa el formulario y te enviaré los datos de mi CLABE o cuenta bancaria. Los precios para transferencia incluyen comisión mínima para cubrir costos del banco.</p>
+
+      <div class="form">
+        <input id="clienteName" placeholder="Tu nombre" />
+        <input id="clienteEmail" placeholder="Tu email" />
+        <input id="clientePhone" placeholder="Tu WhatsApp / teléfono" />
+        <textarea id="clienteMsg" placeholder="Cuéntame tu caso o indica paquete"></textarea>
+        <button class="btn" onclick="sendRequest()">Enviar solicitud</button>
+      </div>
+
+      <p class="small">Cuando recibo tu solicitud, te responderé por email o WhatsApp con instrucciones y confirmación de pago antes de iniciar el proyecto.</p>
+    </section>
+
+    <footer class="card foot">
+      <p>&copy; <span id="year"></span> ECG Nexus — Todos los derechos reservados</p>
+    </footer>
+  </main>
+
+<script>
+  // ---- CONFIG: reemplaza estos valores por favor ----
+  const CONFIG = {
+    email: 'REPLACE_EMAIL',
+    phone: 'REPLACE_PHONE',
+    paypalLinkText: 'REPLACE_PAYPAL_LINK', // ejemplo: https://www.paypal.me/tuusuario
+    paypalHref: 'REPLACE_PAYPAL_LINK'
+  };
+  document.getElementById('whatsapp').innerText = CONFIG.phone;
+  document.getElementById('paypalLink').innerText = CONFIG.paypalLinkText;
+  document.getElementById('paypalLink').href = CONFIG.paypalHref;
+  document.getElementById('year').innerText = new Date().getFullYear();
+
+  function pay(pack, amount) {
+    const link = CONFIG.paypalHref;
+    if(!link || link.includes('REPLACE')) {
+      alert('Aún no has configurado tu enlace PayPal en CONFIG. Edita index.html y pon tu enlace en CONFIG.paypalHref');
+      return;
+    }
+    const sep = link.endsWith('/') ? '' : '/';
+    const toOpen = link + sep + amount;
+    window.open(toOpen, '_blank');
+  }
+
+  function contactTransfer(pack, amount) {
+    document.getElementById('clienteMsg').value = pack + ' (Pago por transferencia: MXN ' + amount + ')\n\nDescribe tu caso...';
+    window.scrollTo(0, document.querySelector('.contacto').offsetTop - 20);
+  }
+
+  function contact(pref) {
+    document.getElementById('clienteMsg').value = pref + '\n\nDescribe tu caso...';
+    window.scrollTo(0, document.querySelector('.contacto').offsetTop - 20);
+  }
+
+  function sendRequest() {
+    const name = document.getElementById('clienteName').value.trim();
+    const email = document.getElementById('clienteEmail').value.trim();
+    const phone = document.getElementById('clientePhone').value.trim();
+    const msg = document.getElementById('clienteMsg').value.trim();
+    if(!name || !email) {
+      alert('Por favor completa al menos tu nombre y email.');
+      return;
+    }
+    const subject = encodeURIComponent('Solicitud - ' + name);
+    const body = encodeURIComponent('Nombre: ' + name + '\nEmail: ' + email + '\nTel: ' + phone + '\n\n' + msg);
+    window.location.href = 'mailto:' + CONFIG.email + '?subject=' + subject + '&body=' + body;
+  }
+</script>
+</body>
+</html>

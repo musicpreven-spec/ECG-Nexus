@@ -1,67 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap');
+
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
-  background: #e6f2ff;
+  background: linear-gradient(160deg, #e6f2ff, #f0f9f4, #fff5e6);
   color: #333;
 }
 
 header.top {
   text-align: center;
   padding: 2em 0;
-  background: linear-gradient(90deg, #0077b6, #0096c7);
+  background: linear-gradient(90deg, #0077b6, #00bfff);
   color: white;
 }
 
 .logo {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.2em;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 2.5em;
   font-weight: 700;
   display: flex;
   justify-content: center;
   gap: 0.2em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .logo-ecg { color: #caf0f8; }
-.logo-nexus { color: #ffd60a; }
+.logo-nexus { color: #ffd6a5; }
 
-.slogan { font-size: 1.2em; margin-top: 0.5em; }
+.slogan {
+  font-size: 1.2em;
+  margin-top: 0.3em;
+}
 
 .container { max-width: 1200px; margin: auto; padding: 1em; }
 
 .card {
-  background: linear-gradient(145deg, #ffffff, #f0f4f8);
+  background: white;
   border-radius: 1em;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  padding: 1.5em;
-  margin: 1em 0;
-  transition: transform 0.3s ease;
+  padding: 2em;
+  margin: 1.5em 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.card:hover { transform: translateY(-5px); }
+.perfil { text-align: center; }
 
-.foto { width: 150px; border-radius: 1em; margin-bottom: 1em; }
+.perfil .foto {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #0077b6;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin-bottom: 1em;
+}
 
-.grid { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; }
+.grid { display: flex; flex-wrap: wrap; gap: 1.5em; justify-content: center; }
 
-.pkg { flex: 1 1 300px; padding: 1em; border-radius: 1em; background: #f8faff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.pkg {
+  flex: 1 1 300px;
+  padding: 1.5em;
+  border-radius: 1.2em;
+  background: linear-gradient(145deg, #ffffff, #e0f7fa);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
-.btn { background-color: #0077b6; color: white; padding: 0.7em 1.5em; border: none; border-radius: 0.6em; cursor: pointer; transition: 0.3s; margin: 0.3em 0; display: inline-block; text-decoration: none; }
+.pkg:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
 
-.btn:hover { background-color: #0096c7; }
+.pkg h3 { color: #0077b6; }
 
-.btn.ghost { background-color: #f0f4f8; color: #0077b6; border: 2px solid #0077b6; }
-.btn.ghost:hover { background-color: #caf0f8; }
+.price { font-weight: bold; margin: 0.5em 0; }
 
-.small { font-size: 0.8em; color: #555; }
+.btn {
+  background: linear-gradient(90deg, #0077b6, #00bfff);
+  color: white;
+  padding: 0.8em 1.8em;
+  border-radius: 0.7em;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 0.5em;
+}
 
-.asesor-container { display: flex; align-items: flex-start; gap: 1em; flex-wrap: wrap; }
+.btn:hover {
+  background: linear-gradient(90deg, #00bfff, #0077b6);
+  transform: scale(1.05);
+}
 
-.foto-asesor { width: 120px; border-radius: 1em; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.btn.ghost { background: white; color: #0077b6; border: 2px solid #0077b6; }
 
-.chat p { background-color: #caf0f8; padding: 0.7em 1em; border-radius: 0.6em; }
+.asesor {
+  text-align: center;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+}
+
+.asesor h2 { color: #0077b6; font-size: 1.8em; margin-bottom: 0.5em; }
+.asesor p { font-size: 1.1em; margin-bottom: 1em; }
 
 .form input, .form textarea { width: 100%; padding: 0.7em; margin: 0.5em 0; border-radius: 0.5em; border: 1px solid #ccc; }
-
 .form button { width: 100%; }
 
 .foot { text-align: center; font-size: 0.9em; color: #555; }

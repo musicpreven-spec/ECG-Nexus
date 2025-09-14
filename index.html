@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html> 
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -8,10 +8,10 @@
 </head>
 <body>
   <header class="top">
-    <div class="brand">
-      <h1>ECG Nexus</h1>
-      <p class="slogan">Tus ideas, nuestra pasión por hacerlas realidad</p>
+    <div class="logo">
+      <span class="logo-ecg">ECG</span><span class="logo-nexus"> Nexus</span>
     </div>
+    <p class="slogan">Tus ideas, nuestra pasión por hacerlas realidad</p>
   </header>
 
   <main class="container">
@@ -23,9 +23,7 @@
 
     <section class="paquetes card">
       <h2>Nuestros Paquetes</h2>
-
       <div class="grid">
-        <!-- Paquete Básico -->
         <div class="pkg">
           <h3>Paquete Básico</h3>
           <p>Concepto creativo, guion y documento de entrega. Ideal si buscas una idea profesional sin inversión en plataformas.</p>
@@ -35,8 +33,6 @@
           <a class="btn" href="#" onclick="pay('Básico',1565.85)">Pagar con PayPal</a>
           <button class="btn ghost" onclick="contactTransfer('Paquete Básico',1520)">Pagar por transferencia</button>
         </div>
-
-        <!-- Paquete Intermedio -->
         <div class="pkg">
           <h3>Paquete Intermedio</h3>
           <p>Incluye inversión para mejoras en plataformas y entregas más rápidas.</p>
@@ -46,8 +42,6 @@
           <a class="btn" href="#" onclick="pay('Intermedio',4168.66)">Pagar con PayPal</a>
           <button class="btn ghost" onclick="contactTransfer('Paquete Intermedio',4140)">Pagar por transferencia</button>
         </div>
-
-        <!-- Paquete Plus -->
         <div class="pkg">
           <h3>Paquete Plus</h3>
           <p>Mejoras constantes, contenido avanzado y entrega prioritaria.</p>
@@ -58,18 +52,28 @@
           <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
         </div>
       </div>
-
       <p class="small">*Tiempos de entrega aproximados. Sujetos al pago del paquete y al volumen de trabajo recibido.</p>
       <p class="small">*Precios calculados para cubrir la comisión estimada de PayPal o comisión mínima de transferencia.</p>
     </section>
 
+    <section class="asesor card">
+      <h2>Tu Asesor Virtual</h2>
+      <div class="asesor-container">
+        <img src="asesor.png" alt="Asesor Legal" class="foto-asesor"/>
+        <div class="chat">
+          <p><strong>ECG Asesor:</strong> ¡Hola! Soy tu asistente virtual, puedo guiarte con tus ideas y proyectos.</p>
+          <button class="btn" onclick="alert('Prueba de interacción: completa el formulario de contacto para enviarnos tu consulta')">Interactuar</button>
+        </div>
+      </div>
+    </section>
+
     <section class="contacto card">
       <h2>Contacto y pagos</h2>
-      <p>📧 Email: <a href="mailto:REPLACE_EMAIL">REPLACE_EMAIL</a></p>
-      <p>📱 WhatsApp: <span id="whatsapp">REPLACE_PHONE</span></p>
+      <p>📧 Email: <a href="mailto:ecgnexus.contacto@gmail.com">ecgnexus.contacto@gmail.com</a></p>
+      <p>📱 WhatsApp: <span id="whatsapp">5639543241</span></p>
 
       <h3>Pago por PayPal (recomendado)</h3>
-      <p>Usa mi enlace PayPal: <strong id="paypalLink">REPLACE_PAYPAL_LINK</strong></p>
+      <p>Usa mi enlace PayPal: <strong id="paypalLink">https://paypal.me/ECGNexus</strong></p>
       <p class="small">Si pagas con PayPal, el sistema aplica una comisión. Los precios ya incluyen la comisión estimada para que sea rentable.</p>
 
       <h3>Pago por transferencia / depósito directo</h3>
@@ -82,7 +86,6 @@
         <textarea id="clienteMsg" placeholder="Cuéntame tu caso o indica paquete"></textarea>
         <button class="btn" onclick="sendRequest()">Enviar solicitud</button>
       </div>
-
       <p class="small">Cuando recibo tu solicitud, te responderé por email o WhatsApp con instrucciones y confirmación de pago antes de iniciar el proyecto.</p>
     </section>
 
@@ -92,11 +95,10 @@
   </main>
 
 <script>
-  // ---- CONFIG: reemplaza estos valores por favor ----
   const CONFIG = {
     email: 'ecgnexus.contacto@gmail.com',
     phone: '5639543241',
-    paypalLinkText: 'https://paypal.me/ECGNexus', // ejemplo: https://www.paypal.me/tuusuario
+    paypalLinkText: 'https://paypal.me/ECGNexus',
     paypalHref: 'https://paypal.me/ECGNexus'
   };
   document.getElementById('whatsapp').innerText = CONFIG.phone;
@@ -105,13 +107,7 @@
   document.getElementById('year').innerText = new Date().getFullYear();
 
   function pay(pack, amount) {
-    const link = CONFIG.paypalHref;
-    if(!link || link.includes('REPLACE')) {
-      alert('Aún no has configurado tu enlace PayPal en CONFIG. Edita index.html y pon tu enlace en CONFIG.paypalHref');
-      return;
-    }
-    const sep = link.endsWith('/') ? '' : '/';
-    const toOpen = link + sep + amount;
+    const toOpen = CONFIG.paypalHref.endsWith('/') ? CONFIG.paypalHref + amount : CONFIG.paypalHref + '/' + amount;
     window.open(toOpen, '_blank');
   }
 
@@ -120,20 +116,12 @@
     window.scrollTo(0, document.querySelector('.contacto').offsetTop - 20);
   }
 
-  function contact(pref) {
-    document.getElementById('clienteMsg').value = pref + '\n\nDescribe tu caso...';
-    window.scrollTo(0, document.querySelector('.contacto').offsetTop - 20);
-  }
-
   function sendRequest() {
     const name = document.getElementById('clienteName').value.trim();
     const email = document.getElementById('clienteEmail').value.trim();
     const phone = document.getElementById('clientePhone').value.trim();
     const msg = document.getElementById('clienteMsg').value.trim();
-    if(!name || !email) {
-      alert('Por favor completa al menos tu nombre y email.');
-      return;
-    }
+    if(!name || !email) { alert('Por favor completa al menos tu nombre y email.'); return; }
     const subject = encodeURIComponent('Solicitud - ' + name);
     const body = encodeURIComponent('Nombre: ' + name + '\nEmail: ' + email + '\nTel: ' + phone + '\n\n' + msg);
     window.location.href = 'mailto:' + CONFIG.email + '?subject=' + subject + '&body=' + body;
@@ -141,5 +129,3 @@
 </script>
 </body>
 </html>
-
-

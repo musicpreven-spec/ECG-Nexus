@@ -38,18 +38,19 @@
       </div>
     </section>
 
-    <!-- Paquetes actualizados -->
-    <section class="paquetes card">
+   <!-- Paquetes -->
+<section class="paquetes card">
   <h2>Nuestros Paquetes</h2>
   <div class="grid">
+
     <div class="pkg">
       <h3>Paquete Consulta</h3>
       <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza.</p>
       <p class="small">Si ninguna de las 3 opciones que se brinden como solución a la petición del cliente son de su agrado, se le devolverá únicamente el 25% del pago realizado.</p>
+      <p><strong>Sesiones de seguimiento:</strong> No aplica</p>
       <p class="price">Precio PayPal: <strong>MXN 800*</strong></p>
       <p class="price">Precio Transferencia: <strong>MXN 780*</strong></p>
       <p><strong>Tiempo de entrega:</strong> ~5 días*</p>
-      <p><strong>Sesiones de seguimiento:</strong> No aplica</p>
       <a class="btn" href="#" onclick="pay('Consulta',800)">Pagar con PayPal</a>
       <button class="btn ghost" onclick="contactTransfer('Paquete Consulta',780)">Pagar por transferencia</button>
     </div>
@@ -89,6 +90,7 @@
       <a class="btn" href="#" onclick="pay('Plus',8333.16)">Pagar con PayPal</a>
       <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
     </div>
+
   </div>
 </section>
 
@@ -104,22 +106,31 @@
       </div>
     </section>
 
-    <!-- FAQS -->
-    <section class="faqs card">
-      <h2>Preguntas Frecuentes</h2>
-      <div class="faq-item">
-        <h3>¿Cómo funcionan los paquetes?</h3>
-        <p>Cada paquete está diseñado para distintos niveles de inversión y entrega. Puedes elegir el que mejor se adapte a tus necesidades.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Ofrecen devoluciones?</h3>
-        <p>El Paquete Consulta ofrece devolución parcial en caso de no satisfacer ninguna opción. Los demás paquetes no tienen devoluciones una vez pagados.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Cómo envío mi convenio firmado?</h3>
-        <p>Sigue las instrucciones de la sección “Cómo enviar tu convenio firmado” más abajo para que podamos recibirlo correctamente.</p>
-      </div>
-    </section>
+    <!-- FAQS / Preguntas y Respuestas -->
+<section class="faqs card">
+  <h2>Preguntas Frecuentes</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Cómo funcionan los paquetes?</button>
+    <div class="faq-answer">
+      <p>Cada paquete está diseñado para distintos niveles de inversión y entrega. Puedes elegir el que mejor se adapte a tus necesidades.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Ofrecen devoluciones?</button>
+    <div class="faq-answer">
+      <p>El Paquete Consulta ofrece devolución parcial en caso de no satisfacer ninguna opción. Los demás paquetes no tienen devoluciones una vez pagados.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Cómo envío mi convenio firmado?</button>
+    <div class="faq-answer">
+      <p>Sigue las instrucciones de la sección “Cómo enviar tu convenio firmado” para que podamos recibirlo correctamente.</p>
+    </div>
+  </div>
+</section>
 
     <!-- Instrucciones para enviar convenio -->
     <section class="instrucciones card">
@@ -184,3 +195,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+

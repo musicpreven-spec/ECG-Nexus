@@ -205,3 +205,51 @@ footer.foot a:hover { text-decoration: underline; }
   display: none;
   margin: 0;
 }
+/* Convenios de servicio */
+.convenios h2 {
+  color: #0d3b66;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.convenios .pkg.convenio {
+  border-left: 6px solid #3b82f6;
+  background: #f0f7ff;
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.convenios .pkg.convenio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  background: #e0f0ff;
+}
+.convenios .pkg.convenio h3 {
+  color: #1e40af;
+  margin-top: 0;
+  font-size: 1.25em;
+}
+.convenios .pkg.convenio p {
+  color: #334155;
+  margin-bottom: 10px;
+  line-height: 1.5em;
+}
+
+/* Input de firma para cliente */
+.input-firma {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #3b82f6;
+  font-size: 1em;
+  color: #1e3a8a;
+  transition: all 0.3s ease;
+}
+.input-firma:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 8px rgba(56, 139, 253, 0.3);
+}
+

@@ -38,61 +38,66 @@
       </div>
     </section>
 
-   <!-- Paquetes -->
-<section class="paquetes card">
-  <h2>Nuestros Paquetes</h2>
-  <div class="grid">
+  <!-- Paquetes -->
+  <section class="paquetes card">
+    <h2>Nuestros Paquetes</h2>
+    <div class="grid">
+      <!-- Paquete Consulta -->
+      <div class="pkg">
+        <h3>Paquete Consulta</h3>
+        <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza.</p>
+        <p class="small">Si ninguna de las 3 opciones que se brinden como solución a la petición del cliente son de su agrado, se le devolverá únicamente el 25% del pago realizado.</p>
+        <p class="price">Precio PayPal: <strong>MXN 800*</strong></p>
+        <p class="price">Precio Transferencia: <strong>MXN 780*</strong></p>
+        <p><strong>Tiempo de entrega:</strong> ~5 días*</p>
+        <p><strong>Sesiones de seguimiento:</strong> No aplica</p>
+        <a class="btn" href="#" onclick="pay('Consulta',800)">Pagar con PayPal</a>
+        <button class="btn ghost" onclick="contactTransfer('Paquete Consulta',780)">Pagar por transferencia</button>
+      </div>
 
-    <div class="pkg">
-      <h3>Paquete Consulta</h3>
-      <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza.</p>
-      <p class="small">Si ninguna de las 3 opciones que se brinden como solución a la petición del cliente son de su agrado, se le devolverá únicamente el 25% del pago realizado.</p>
-      <p><strong>Sesiones de seguimiento:</strong> No aplica</p>
-      <p class="price">Precio PayPal: <strong>MXN 800*</strong></p>
-      <p class="price">Precio Transferencia: <strong>MXN 780*</strong></p>
-      <p><strong>Tiempo de entrega:</strong> ~5 días*</p>
-      <a class="btn" href="#" onclick="pay('Consulta',800)">Pagar con PayPal</a>
-      <button class="btn ghost" onclick="contactTransfer('Paquete Consulta',780)">Pagar por transferencia</button>
+      <!-- Paquete Básico -->
+      <div class="pkg">
+        <h3>Paquete Básico</h3>
+        <p>Concepto creativo, guion y documento de entrega. Ideal si buscas una idea profesional sin inversión en plataformas.</p>
+        <p class="small">No hay devoluciones una vez realizado el pago.</p>
+        <p class="small">Incluye 4 sesiones de seguimiento vía Zoom durante 1 mes.</p>
+        <p class="small">Cada sesión dura aproximadamente 30–35 minutos y el cliente elige fecha y hora de cada sesión.</p>
+        <p class="price">Precio PayPal: <strong>MXN 1,565.85*</strong></p>
+        <p class="price">Precio Transferencia: <strong>MXN 1,520*</strong></p>
+        <p><strong>Tiempo de entrega:</strong> ~30 días*</p>
+        <a class="btn" href="#" onclick="pay('Básico',1565.85)">Pagar con PayPal</a>
+        <button class="btn ghost" onclick="contactTransfer('Paquete Básico',1520)">Pagar por transferencia</button>
+      </div>
+
+      <!-- Paquete Intermedio -->
+      <div class="pkg">
+        <h3>Paquete Intermedio</h3>
+        <p>Incluye inversión para mejoras en plataformas y entregas más rápidas.</p>
+        <p class="small">No hay devoluciones una vez realizado el pago.</p>
+        <p class="small">Incluye 3 sesiones de seguimiento vía Zoom durante 2 semanas.</p>
+        <p class="small">Cada sesión dura aproximadamente 30–35 minutos y el cliente elige fecha y hora de cada sesión.</p>
+        <p class="price">Precio PayPal: <strong>MXN 4,168.66*</strong></p>
+        <p class="price">Precio Transferencia: <strong>MXN 4,140*</strong></p>
+        <p><strong>Tiempo de entrega:</strong> ~14 días*</p>
+        <a class="btn" href="#" onclick="pay('Intermedio',4168.66)">Pagar con PayPal</a>
+        <button class="btn ghost" onclick="contactTransfer('Paquete Intermedio',4140)">Pagar por transferencia</button>
+      </div>
+
+      <!-- Paquete Plus -->
+      <div class="pkg">
+        <h3>Paquete Plus</h3>
+        <p>Mejoras constantes, contenido avanzado y entrega prioritaria.</p>
+        <p class="small">No hay devoluciones una vez realizado el pago.</p>
+        <p class="small">Incluye 3 sesiones de seguimiento vía Zoom en la misma semana.</p>
+        <p class="small">Cada sesión dura aproximadamente 30–35 minutos y el cliente elige fecha y hora de cada sesión.</p>
+        <p class="price">Precio PayPal: <strong>MXN 8,333.16*</strong></p>
+        <p class="price">Precio Transferencia: <strong>MXN 8,310*</strong></p>
+        <p><strong>Tiempo de entrega:</strong> ~7 días*</p>
+        <a class="btn" href="#" onclick="pay('Plus',8333.16)">Pagar con PayPal</a>
+        <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
+      </div>
     </div>
-
-    <div class="pkg">
-      <h3>Paquete Básico</h3>
-      <p>Concepto creativo, guion y documento de entrega.</p>
-      <p class="small">Incluye 4 sesiones de seguimiento vía Zoom durante 1 mes.</p>
-      <p class="small">Cada sesión dura aproximadamente 30–35 minutos y el cliente elige fecha y hora de cada sesión.</p>
-      <p class="price">Precio PayPal: <strong>MXN 1,565.85*</strong></p>
-      <p class="price">Precio Transferencia: <strong>MXN 1,520*</strong></p>
-      <p><strong>Tiempo de entrega:</strong> ~30 días*</p>
-      <a class="btn" href="#" onclick="pay('Básico',1565.85)">Pagar con PayPal</a>
-      <button class="btn ghost" onclick="contactTransfer('Paquete Básico',1520)">Pagar por transferencia</button>
-    </div>
-
-    <div class="pkg">
-      <h3>Paquete Intermedio</h3>
-      <p>Incluye inversión para mejoras en plataformas y entregas más rápidas.</p>
-      <p class="small">Incluye 3 sesiones de seguimiento vía Zoom durante 2 semanas.</p>
-      <p class="small">Cada sesión dura aproximadamente 30–35 minutos y el cliente elige fecha y hora de cada sesión.</p>
-      <p class="price">Precio PayPal: <strong>MXN 4,168.66*</strong></p>
-      <p class="price">Precio Transferencia: <strong>MXN 4,140*</strong></p>
-      <p><strong>Tiempo de entrega:</strong> ~14 días*</p>
-      <a class="btn" href="#" onclick="pay('Intermedio',4168.66)">Pagar con PayPal</a>
-      <button class="btn ghost" onclick="contactTransfer('Paquete Intermedio',4140)">Pagar por transferencia</button>
-    </div>
-
-    <div class="pkg">
-      <h3>Paquete Plus</h3>
-      <p>Mejoras constantes, contenido avanzado y entrega prioritaria.</p>
-      <p class="small">Incluye 3 sesiones de seguimiento vía Zoom en la misma semana.</p>
-      <p class="small">Cada sesión dura aproximadamente 30–35 minutos y el cliente elige fecha y hora de cada sesión.</p>
-      <p class="price">Precio PayPal: <strong>MXN 8,333.16*</strong></p>
-      <p class="price">Precio Transferencia: <strong>MXN 8,310*</strong></p>
-      <p><strong>Tiempo de entrega:</strong> ~7 días*</p>
-      <a class="btn" href="#" onclick="pay('Plus',8333.16)">Pagar con PayPal</a>
-      <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
-    </div>
-
-  </div>
-</section>
+  </section>
 
     <!-- Asesor -->
     <section class="asesor card">
@@ -195,4 +200,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 

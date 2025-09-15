@@ -1,116 +1,177 @@
-const { jsPDF } = window.jspdf;
+// Inicializar EmailJS
+emailjs.init("vcMhNz-ZzWxxICicN"); // reemplaza con tu user ID de EmailJS
 
-// genera inputs de fecha según paquete (se ejecuta al cargar porque <script> está al final del body)
-document.getElementById('paqueteSelect').addEventListener('change', () => {
-  const pkg = document.getElementById('paqueteSelect').value;
-  const cont = document.getElementById('fechasContainer');
-  cont.innerHTML = '';
-  let n = 0;
-  if (pkg === 'Básico') n = 4;
-  if (pkg === 'Intermedio') n = 3;
-  if (pkg === 'Plus') n = 3;
-  if (pkg === 'Consulta') n = 1;
-  for (let i = 1; i <= n; i++) {
-    cont.innerHTML += `<label>Fecha/Hora revisión ${i}:</label>
-    <input type="datetime-local" id="fecha${i}" required><br>`;
+// Generar campos de fecha/hora según paquete
+function generarFechas() {
+  const paquete = document.getElementById('paqueteSelect').value;
+  const container = document.getElementById('fechasContainer');
+  container.innerHTML = '';
+
+  let sesiones = 0;
+  if (paquete === 'Básico') sesiones = 4;
+  if (paquete === 'Intermedio') sesiones = 3;
+  if (paquete === 'Plus') sesiones = 3;
+
+  for (let i = 1; i <= sesiones; i++) {
+    const div = document.createElement('div');
+    div.classList.add('sesion-fecha');
+    div.innerHTML = `
+      <label>Sesión ${i} — Fecha y hora:</label>
+      <input type="date" id="fecha${i}" required />
+      <input type="time" id="hora${i}" required />
+    `;
+    container.appendChild(div);
   }
-});
-
-// Generar y descargar el PDF (con nombre seguro)
-function generarConvenio() {
-  const name = document.getElementById('clienteName').value.trim();
-  const email = document.getElementById('clienteEmail').value.trim();
-  const pkg = document.getElementById('paqueteSelect').value;
-  if (!name || !email) { alert('Nombre y email obligatorios.'); return; }
-
-  const doc = new jsPDF();
-  doc.setFontSize(14);
-  doc.text('ECG Nexus', 105, 20, { align: 'center' });
-  doc.text('Convenio de Servicio', 105, 30, { align: 'center' });
-  doc.setFontSize(11);
-
-  doc.text(`Cliente: ${name}`, 20, 50);
-  doc.text(`Email: ${email}`, 20, 57);
-  doc.text(`Paquete contratado: ${pkg}`, 20, 64);
-
-  let y = 80;
-  doc.text('Fechas/Horas de revisión:', 20, y); y += 8;
-  let n = 0;
-  if (pkg === 'Básico') n = 4;
-  if (pkg === 'Intermedio') n = 3;
-  if (pkg === 'Plus') n = 3;
-  if (pkg === 'Consulta') n = 1;
-  for (let i = 1; i <= n; i++) {
-    const f = document.getElementById(`fecha${i}`) ? document.getElementById(`fecha${i}`).value : '';
-    doc.text(`${i}. ${f}`, 25, y); y += 6;
-  }
-
-  y += 10;
-  if (pkg === 'Consulta') {
-    doc.text('Política de devolución: Se devolverá únicamente el 25% del pago en caso de no quedar convencido con las opciones ofrecidas.', 20, y, { maxWidth: 170 });
-  } else {
-    doc.text('Política de devolución: No hay devoluciones una vez realizado el pago.', 20, y, { maxWidth: 170 });
-  }
-
-  y += 20;
-  doc.text('Firma del cliente: ____________________________', 20, y);
-  y += 15;
-  doc.text('Firma de Emanuel Camacho García: ____________________________', 20, y);
-
-  // Nombre seguro para archivo
-  const safeName = name.replace(/[^\w\-]/g, '_').replace(/\s+/g, '_');
-  const filename = `Convenio_${pkg}_${safeName}.pdf`;
-
-  // Descarga PDF
-  doc.save(filename);
-
-  // Mensaje claro para el usuario (manzana)
-  alert('Tu convenio se descargó en tu equipo como "' + filename + '".\n\nAhora abre tu correo y adjunta ese archivo en un mensaje a ecgnexus.contacto@gmail.com.\nPuedes usar el botón "Abrir correo para enviar convenio" para preparar el correo con el asunto y el cuerpo prellenados.');
 }
 
-// Abre el cliente de mail con asunto y cuerpo prellenado (pero recuerda: el cliente debe adjuntar el PDF manualmente)
-function openEmailForConvenio() {
-  const name = document.getElementById('clienteName').value.trim();
-  const pkg = document.getElementById('paqueteSelect').value || 'Paquete';
-  if (!name) {
-    alert('Por favor escribe tu nombre en el campo "Tu nombre" antes de abrir el correo.');
+document.getElementById('paqueteSelect').addEventListener('change', generarFechas);
+
+// Generar PDF profesional
+function generarConvenio() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  const nombre = document.getElementById('clienteName').value.trim();
+  const email = document.getElementById('clienteEmail').value.trim();
+  const telefono = document.getElementById('clientePhone').value.trim();
+  const paquete = document.getElementById('paqueteSelect').value;
+
+  if (!nombre || !email) {
+    alert('Por favor completa tu nombre y correo.');
     return;
   }
-  const safeName = name.replace(/[^\w\-]/g, '_').replace(/\s+/g, '_');
-  const subject = `Convenio - ${name}`;
-  const bodyLines = [
-    `Mi nombre es: ${name}`,
-    `Paquete: ${pkg}`,
-    '',
-    `Adjunto el convenio firmado (archivo: Convenio_${pkg}_${safeName}.pdf).`,
-    '',
-    'Por favor confirmar la recepción. Gracias.'
-  ];
-  const body = encodeURIComponent(bodyLines.join('\n'));
-  // Abre el cliente de correo por defecto con asunto y cuerpo
-  window.location.href = `mailto:ecgnexus.contacto@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+  // --- Fondo ---
+  doc.setFillColor(240, 244, 248); // color de fondo #F0F4F8
+  doc.rect(0, 0, 210, 297, 'F'); // tamaño A4
+
+  // --- Encabezado con logo ---
+  doc.setFillColor(31, 78, 121); // azul corporativo #1F4E79
+  doc.rect(0, 0, 210, 25, 'F'); 
+  doc.setFont('Montserrat Alternates', 'bold');
+  doc.setFontSize(18);
+  doc.setTextColor('#FFFFFF');
+  doc.text('ECG Nexus', 15, 17);
+  doc.setFontSize(10);
+  doc.text('Tus ideas, nuestra pasión por hacerlas realidad', 15, 23);
+
+  // Línea separadora
+  doc.setDrawColor(31, 78, 121);
+  doc.setLineWidth(0.8);
+  doc.line(15, 28, 195, 28);
+
+  // --- Información del cliente ---
+  doc.setFontSize(12);
+  doc.setTextColor('#333');
+  doc.setFont('Montserrat Alternates', 'bold');
+  let y = 38;
+  doc.text('Datos del Cliente:', 15, y);
+  y += 7;
+  doc.setFont('Montserrat Alternates', 'normal');
+  doc.text(`Nombre: ${nombre}`, 15, y);
+  y += 6;
+  doc.text(`Email: ${email}`, 15, y);
+  y += 6;
+  doc.text(`Teléfono / WhatsApp: ${telefono}`, 15, y);
+  y += 6;
+  doc.text(`Paquete elegido: ${paquete}`, 15, y);
+
+  // Línea separadora
+  y += 4;
+  doc.setDrawColor(31, 78, 121);
+  doc.setLineWidth(0.5);
+  doc.line(15, y, 195, y);
+  y += 8;
+
+  // --- Sesiones ---
+  doc.setFont('Montserrat Alternates', 'bold');
+  doc.setTextColor('#1F4E79');
+  doc.text('Sesiones de seguimiento:', 15, y);
+  y += 7;
+  doc.setFont('Montserrat Alternates', 'normal');
+  doc.setTextColor('#333');
+
+  const totalSesiones = paquete === 'Básico' ? 4 : 3;
+  for (let i = 1; i <= totalSesiones; i++) {
+    const fecha = document.getElementById(`fecha${i}`)?.value || 'No definida';
+    const hora = document.getElementById(`hora${i}`)?.value || 'No definida';
+    doc.text(`Sesión ${i}: ${fecha} - ${hora} (30–35 mins)`, 15, y);
+    y += 6;
+  }
+
+  // Línea separadora
+  y += 2;
+  doc.setDrawColor(31, 78, 121);
+  doc.line(15, y, 195, y);
+  y += 8;
+
+  // --- Condiciones ---
+  doc.setFont('Montserrat Alternates', 'bold');
+  doc.setTextColor('#1F4E79');
+  doc.text('Condiciones:', 15, y);
+  y += 7;
+  doc.setFont('Montserrat Alternates', 'normal');
+  doc.setTextColor('#333');
+  doc.text('1) Las sesiones se realizan vía Zoom según fechas acordadas.', 15, y);
+  y += 6;
+  doc.text('2) Pagos realizados no son reembolsables excepto Paquete Consulta.', 15, y);
+  y += 6;
+  doc.text('3) Firma del cliente valida aceptación de términos.', 15, y);
+
+  // Línea separadora
+  y += 10;
+  doc.setDrawColor(31, 78, 121);
+  doc.setLineWidth(0.5);
+  doc.line(15, y, 195, y);
+  y += 10;
+
+  // --- Firmas ---
+  doc.setFont('Montserrat Alternates', 'bold');
+  doc.text('Firma del Cliente:', 15, y);
+  doc.text(nombre, 60, y);
+  y += 20;
+  doc.text('Firma ECG Nexus:', 15, y);
+  doc.text('Emanuel Camacho García', 60, y);
+
+  // Guardar PDF
+  doc.save(`Convenio_Profesional_${nombre}.pdf`);
 }
 
-// Función para enviar solicitud (mantengo la tuya)
+// Abrir correo prellenado
+function openEmailForConvenio() {
+  const nombre = document.getElementById('clienteName').value || 'Cliente';
+  const subject = encodeURIComponent(`Convenio – ${nombre}`);
+  const body = encodeURIComponent(`Hola,\n\nAdjunto mi convenio firmado.\n\nNombre: ${nombre}`);
+  window.location.href = `mailto:ecgnexus.contacto@gmail.com?subject=${subject}&body=${body}`;
+}
+
+// Enviar solicitud mediante EmailJS
 function sendRequest() {
-  const name = document.getElementById('clienteName').value.trim();
+  const nombre = document.getElementById('clienteName').value.trim();
   const email = document.getElementById('clienteEmail').value.trim();
-  const phone = document.getElementById('clientePhone').value.trim();
-  const msg = document.getElementById('clienteMsg').value.trim();
-  if(!name || !email) { alert('Por favor completa al menos tu nombre y email.'); return; }
-  const subject = encodeURIComponent('Solicitud - ' + name);
-  const body = encodeURIComponent('Nombre: ' + name + '\nEmail: ' + email + '\nTel: ' + phone + '\n\n' + msg);
-  window.location.href = 'mailto:' + 'ecgnexus.contacto@gmail.com' + '?subject=' + subject + '&body=' + body;
+  const telefono = document.getElementById('clientePhone').value.trim();
+  const mensaje = document.getElementById('clienteMsg').value.trim();
+  const paquete = document.getElementById('paqueteSelect').value;
+
+  if (!nombre || !email || !mensaje) {
+    alert('Por favor completa todos los campos.');
+    return;
+  }
+
+  const templateParams = {
+    from_name: nombre,
+    from_email: email,
+    phone: telefono,
+    message: mensaje,
+    package: paquete
+  };
+
+  emailjs.send('service_sfdil5s','template_wtu328f',templateParams)
+    .then(() => { alert('Solicitud enviada con éxito. Te responderemos pronto.'); })
+    .catch((err) => { alert('Error al enviar. Revisa tu conexión o intenta de nuevo.'); console.error(err); });
 }
 
-// FAQ acordeón
-document.querySelectorAll('.faq-item h3').forEach(item => {
-  item.addEventListener('click', () => {
-    const p = item.nextElementSibling;
-    p.style.display = p.style.display === 'block' ? 'none' : 'block';
-  });
-});
+// Ejecutar al cargar la página
+window.onload = generarFechas;
 
-// Rellenar número y año en footer si existen
-if (document.getElementById('whatsapp')) document.getElementById('whatsapp').innerText = '5639543241';
-if (document.getElementById('year')) document.getElementById('year').innerText = new Date().getFullYear();
+

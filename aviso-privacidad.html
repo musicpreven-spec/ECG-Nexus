@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aviso de Privacidad — ECG Nexus</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top">
+    <div class="logo">
+      <span class="logo-ecg">ECG</span><span class="logo-nexus"> Nexus</span>
+    </div>
+    <p class="slogan">Tus ideas, nuestra pasión por hacerlas realidad</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Aviso de Privacidad</h1>
+
+      <!-- Recuadro de confianza/transparencia -->
+      <div class="trust-box">
+        <h3>Confianza y Transparencia</h3>
+        <ul>
+          <li>Somos un proyecto auténtico, en crecimiento, pero real.</li>
+          <li>Cada servicio se personaliza según tu necesidad.</li>
+          <li>Pagos procesados de forma segura. No almacenamos datos bancarios.</li>
+          <li>Transparencia total: precios y tiempos claros desde el inicio.</li>
+          <li>Comunicamos por correo o WhatsApp directo contigo.</li>
+        </ul>
+      </div>
+
+      <p>En ECG Nexus nos comprometemos a proteger su privacidad y la seguridad de su información personal. Este Aviso de Privacidad describe cómo recopilamos, usamos y protegemos los datos que usted nos proporciona.</p>
+
+      <h2>Datos que recopilamos</h2>
+      <p>Recopilamos únicamente los datos necesarios para poder contactarle y brindarle el servicio solicitado: nombre, correo electrónico, teléfono y descripción del proyecto.</p>
+
+      <h2>Uso de la información</h2>
+      <p>Los datos que usted proporcione se usarán exclusivamente para:</p>
+      <ul>
+        <li>Responder a sus solicitudes de información o cotización.</li>
+        <li>Preparar y enviar propuestas, facturas y recibos.</li>
+        <li>Dar seguimiento al servicio contratado.</li>
+      </ul>
+
+      <h2>Protección de datos</h2>
+      <p>No almacenamos ni solicitamos datos bancarios sensibles. Los pagos se procesan a través de plataformas seguras como PayPal o mediante transferencia bancaria directa.</p>
+
+      <h2>Derechos ARCO</h2>
+      <p>Usted tiene derecho a acceder, rectificar y cancelar sus datos personales, así como oponerse a su uso. Para ejercer estos derechos puede escribirnos al correo <a href="mailto:ecgnexus.contacto@gmail.com">ecgnexus.contacto@gmail.com</a>.</p>
+
+      <h2>Cambios a este aviso</h2>
+      <p>Este Aviso de Privacidad puede actualizarse ocasionalmente para reflejar cambios en nuestros servicios o en la legislación vigente. Las modificaciones se publicarán en esta misma página.</p>
+
+      <p class="small">Última actualización: <span id="fecha"></span></p>
+    </section>
+
+    <footer class="card foot">
+      <p>&copy; <span id="year"></span> ECG Nexus — Todos los derechos reservados</p>
+      <p class="small">RFC: CAGE890312-NZ5</p>
+      <p class="small"><a href="index.html">Volver a la página principal</a></p>
+    </footer>
+  </main>
+
+<script>
+  document.getElementById('year').innerText = new Date().getFullYear();
+  document.getElementById('fecha').innerText = new Date().toLocaleDateString('es-MX');
+</script>
+</body>
+</html>

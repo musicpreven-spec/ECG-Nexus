@@ -1,186 +1,134 @@
-/* --- Estilo General --- */
 body {
   font-family: 'Montserrat Alternates', sans-serif;
+  background: linear-gradient(180deg, #f4f8fb 0%, #ffffff 100%);
   margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
   color: #333;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+header.top {
+  background-color: #0d3b66;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 2em;
+  font-weight: bold;
+}
+.logo-ecg { color: #ffd700; }
+.logo-nexus { color: #fff; }
+
+.slogan {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.banner-real {
+  background-color: #145da0;
+  color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 0.95em;
+  border-radius: 5px;
 }
 
 .container {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: auto;
   padding: 20px;
 }
 
 .card {
-  background: #ffffffcc; /* Blanco semi-transparente */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   padding: 20px;
-  margin-bottom: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-}
-
-/* --- Header / Logo --- */
-header.top {
-  text-align: center;
-  padding: 30px 20px 10px;
-  background: linear-gradient(135deg, #009688, #4db6ac);
-  color: white;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-
-.logo {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.logo-ecg {
-  color: #ffca28;
-}
-
-.logo-nexus {
-  color: #ffffff;
-}
-
-.slogan {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #f1f8e9;
-}
-
-/* --- Perfil / Foto --- */
-.perfil {
-  text-align: center;
-}
-
-.perfil .foto {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid #009688;
-  margin-bottom: 15px;
-}
-
-/* --- Paquetes --- */
-.paquetes h2 {
-  text-align: center;
-  color: #00796b;
   margin-bottom: 20px;
 }
 
+.foto {
+  display: block;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  object-fit: cover;
+}
+
 .grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 20px;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
 }
 
 .pkg {
-  background: linear-gradient(135deg, #b2dfdb, #80cbc4);
-  padding: 20px;
-  border-radius: 15px;
-  width: 300px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.pkg:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  background: #f9fcff;
+  border-left: 5px solid #0d3b66;
+  border-radius: 8px;
+  padding: 15px;
 }
 
 .pkg h3 {
-  color: #004d40;
-  margin-bottom: 10px;
+  margin-top: 0;
+  color: #0d3b66;
 }
 
-.pkg .price {
+.price {
   font-weight: bold;
-  color: #00695c;
+  color: #145da0;
 }
 
-.pkg p {
-  margin: 8px 0;
-}
-
-/* --- Botones --- */
 .btn {
   display: inline-block;
-  padding: 10px 20px;
-  margin: 10px 5px 0;
-  border-radius: 10px;
-  background: #00796b;
+  padding: 10px 15px;
+  background-color: #0d3b66;
   color: #fff;
-  font-weight: 700;
-  transition: background 0.3s;
-  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 5px;
 }
 
 .btn:hover {
-  background: #004d40;
+  background-color: #145da0;
 }
 
 .btn.ghost {
-  background: transparent;
-  border: 2px solid #00796b;
-  color: #00796b;
+  background: #fff;
+  color: #0d3b66;
+  border: 2px solid #0d3b66;
 }
 
-.btn.ghost:hover {
-  background: #00796b;
-  color: white;
-}
-
-/* --- Asesor / sección ejemplo --- */
-.asesor h2 {
-  text-align: center;
-  color: #00796b;
-}
-
-.asesor p {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.asesor .btn {
-  display: block;
-  margin: 0 auto;
-}
-
-/* --- Contacto --- */
-.contacto input,
-.contacto textarea {
+.form input,
+.form textarea {
   width: 100%;
-  padding: 12px;
+  padding: 8px;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  font-size: 1rem;
 }
 
-.contacto button {
+.form button {
   width: 100%;
 }
 
-/* --- Footer --- */
-.foot {
-  text-align: center;
-  color: #004d40;
-  font-size: 0.9rem;
+.small {
+  font-size: 0.85em;
+  color: #555;
 }
 
-/* --- Pequeños detalles --- */
-.small {
-  font-size: 0.85rem;
-  color: #555;
+footer.foot {
+  text-align: center;
+  background: #0d3b66;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+footer.foot a {
+  color: #ffd700;
+  text-decoration: none;
+}
+footer.foot a:hover {
+  text-decoration: underline;
 }

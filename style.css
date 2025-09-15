@@ -252,4 +252,14 @@ footer.foot a:hover { text-decoration: underline; }
   outline: none;
   box-shadow: 0 0 8px rgba(56, 139, 253, 0.3);
 }
+.revisiones select,
+.revisiones input[type="datetime-local"] {
+  display: block;
+  margin: 6px 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+}
+
 

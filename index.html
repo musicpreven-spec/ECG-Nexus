@@ -130,6 +130,25 @@
         <input id="clienteEmail" placeholder="Tu email" />
         <input id="clientePhone" placeholder="Tu WhatsApp / teléfono" />
         <textarea id="clienteMsg" placeholder="Cuéntame tu caso o indica paquete"></textarea>
+        
+        <!-- BLOQUE NUEVO -->
+<div class="revisiones">
+  <label>Selecciona tu paquete:</label>
+  <select id="paqueteSelect">
+    <option value="Consulta">Paquete Consulta</option>
+    <option value="Básico">Paquete Básico</option>
+    <option value="Intermedio">Paquete Intermedio</option>
+    <option value="Plus">Paquete Plus</option>
+  </select>
+
+  <div id="fechasContainer">
+    <!-- Aquí se generan dinámicamente los inputs para fechas según paquete -->
+  </div>
+</div>
+
+<button class="btn" onclick="generarConvenio()">Firmar Convenio</button>
+<!-- FIN BLOQUE NUEVO -->
+
         <button class="btn" onclick="sendRequest()">Enviar solicitud</button>
       </div>
       <p class="small">Cuando recibo tu solicitud, te responderé por email o WhatsApp con instrucciones y confirmación de pago antes de iniciar el proyecto.</p>
@@ -187,3 +206,4 @@
 </script>
 </body>
 </html>
+

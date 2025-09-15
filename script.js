@@ -1,6 +1,6 @@
 const { jsPDF } = window.jspdf;
 
-// genera inputs de fecha según paquete
+// genera inputs de fecha según paquete (se ejecuta al cargar porque <script> está al final del body)
 document.getElementById('paqueteSelect').addEventListener('change', () => {
   const pkg = document.getElementById('paqueteSelect').value;
   const cont = document.getElementById('fechasContainer');
@@ -16,6 +16,7 @@ document.getElementById('paqueteSelect').addEventListener('change', () => {
   }
 });
 
+// Generar y descargar el PDF (con nombre seguro)
 function generarConvenio() {
   const name = document.getElementById('clienteName').value.trim();
   const email = document.getElementById('clienteEmail').value.trim();
@@ -40,7 +41,7 @@ function generarConvenio() {
   if (pkg === 'Plus') n = 3;
   if (pkg === 'Consulta') n = 1;
   for (let i = 1; i <= n; i++) {
-    const f = document.getElementById(`fecha${i}`).value;
+    const f = document.getElementById(`fecha${i}`) ? document.getElementById(`fecha${i}`).value : '';
     doc.text(`${i}. ${f}`, 25, y); y += 6;
   }
 
@@ -56,10 +57,60 @@ function generarConvenio() {
   y += 15;
   doc.text('Firma de Emanuel Camacho García: ____________________________', 20, y);
 
-  // Descarga PDF
-  doc.save(`Convenio_${pkg}_${name}.pdf`);
+  // Nombre seguro para archivo
+  const safeName = name.replace(/[^\w\-]/g, '_').replace(/\s+/g, '_');
+  const filename = `Convenio_${pkg}_${safeName}.pdf`;
 
-  // Para enviarte el PDF al correo ecgnexus.contacto@gmail.com necesitas un backend (PHP o Node)
-  // que reciba el archivo y lo reenvíe por correo. Con solo HTML/JS en el front no se puede
-  // enviar un PDF por email automáticamente.
+  // Descarga PDF
+  doc.save(filename);
+
+  // Mensaje claro para el usuario (manzana)
+  alert('Tu convenio se descargó en tu equipo como "' + filename + '".\n\nAhora abre tu correo y adjunta ese archivo en un mensaje a ecgnexus.contacto@gmail.com.\nPuedes usar el botón "Abrir correo para enviar convenio" para preparar el correo con el asunto y el cuerpo prellenados.');
 }
+
+// Abre el cliente de mail con asunto y cuerpo prellenado (pero recuerda: el cliente debe adjuntar el PDF manualmente)
+function openEmailForConvenio() {
+  const name = document.getElementById('clienteName').value.trim();
+  const pkg = document.getElementById('paqueteSelect').value || 'Paquete';
+  if (!name) {
+    alert('Por favor escribe tu nombre en el campo "Tu nombre" antes de abrir el correo.');
+    return;
+  }
+  const safeName = name.replace(/[^\w\-]/g, '_').replace(/\s+/g, '_');
+  const subject = `Convenio - ${name}`;
+  const bodyLines = [
+    `Mi nombre es: ${name}`,
+    `Paquete: ${pkg}`,
+    '',
+    `Adjunto el convenio firmado (archivo: Convenio_${pkg}_${safeName}.pdf).`,
+    '',
+    'Por favor confirmar la recepción. Gracias.'
+  ];
+  const body = encodeURIComponent(bodyLines.join('\n'));
+  // Abre el cliente de correo por defecto con asunto y cuerpo
+  window.location.href = `mailto:ecgnexus.contacto@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+}
+
+// Función para enviar solicitud (mantengo la tuya)
+function sendRequest() {
+  const name = document.getElementById('clienteName').value.trim();
+  const email = document.getElementById('clienteEmail').value.trim();
+  const phone = document.getElementById('clientePhone').value.trim();
+  const msg = document.getElementById('clienteMsg').value.trim();
+  if(!name || !email) { alert('Por favor completa al menos tu nombre y email.'); return; }
+  const subject = encodeURIComponent('Solicitud - ' + name);
+  const body = encodeURIComponent('Nombre: ' + name + '\nEmail: ' + email + '\nTel: ' + phone + '\n\n' + msg);
+  window.location.href = 'mailto:' + 'ecgnexus.contacto@gmail.com' + '?subject=' + subject + '&body=' + body;
+}
+
+// FAQ acordeón
+document.querySelectorAll('.faq-item h3').forEach(item => {
+  item.addEventListener('click', () => {
+    const p = item.nextElementSibling;
+    p.style.display = p.style.display === 'block' ? 'none' : 'block';
+  });
+});
+
+// Rellenar número y año en footer si existen
+if (document.getElementById('whatsapp')) document.getElementById('whatsapp').innerText = '5639543241';
+if (document.getElementById('year')) document.getElementById('year').innerText = new Date().getFullYear();

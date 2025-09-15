@@ -7,190 +7,183 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Convenios desplegables */
-    .convenio-btn { margin-top: 10px; background-color: #2563eb; color: #fff; border-radius: 8px; cursor: pointer; padding: 8px 12px; border: none; }
-    .convenio-desplegable { display: none; background: #f0f7ff; border-left: 6px solid #3b82f6; padding: 20px; margin-top: 15px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.08); }
-    .firma-logo { max-width: 150px; margin-bottom: 10px; display: block; }
-    .revisiones p { margin: 8px 0; }
-    .revisiones input[type="date"], .revisiones input[type="time"] { margin-left: 10px; padding: 4px 8px; border-radius: 6px; border: 1px solid #3b82f6; }
-  </style>
 </head>
 <body>
-<header class="top">
-  <div class="logo"><span class="logo-ecg">ECG</span><span class="logo-nexus"> Nexus</span></div>
-  <p class="slogan">Tus ideas, nuestra pasión por hacerlas realidad</p>
-  <div class="badge-seguridad"><i class="fa fa-lock"></i> Pagos procesados de forma segura — no almacenamos tus datos bancarios</div>
-  <div class="banner-real">Somos un proyecto auténtico en crecimiento. Creamos soluciones personalizadas en aplicaciones, chatbots, videos, animaciones, flyers y páginas web para cualquier sector.</div>
-</header>
-
-<main class="container">
-  <!-- Perfil / Sobre mí -->
-  <section class="perfil card block-left">
-    <div class="img-wrapper"><img src="foto.jpg" alt="Emanuel Camacho" class="foto"/></div>
-    <div class="text-wrapper">
-      <h2>Hola — Soy Emanuel</h2>
-      <p>En <strong>ECG Nexus</strong> ayudamos a convertir ideas en proyectos reales, creativos y profesionales — para artistas, profesionistas, empresas y organizaciones de todo tipo.</p>
-      <div class="trust-box">
-        <h3>Confianza y Transparencia</h3>
-        <ul>
-          <li>Somos un proyecto auténtico, en crecimiento, pero real.</li>
-          <li>Cada servicio se personaliza según tu necesidad.</li>
-          <li>Pagos procesados de forma segura. No almacenamos datos bancarios.</li>
-          <li>Transparencia total: precios y tiempos claros desde el inicio.</li>
-          <li>Comunicamos por correo o WhatsApp directo contigo.</li>
-        </ul>
-      </div>
+  <header class="top">
+    <div class="logo">
+      <span class="logo-ecg">ECG</span><span class="logo-nexus"> Nexus</span>
     </div>
-  </section>
-
-  <!-- Paquetes -->
-  <section class="paquetes card">
-    <h2>Nuestros Paquetes</h2>
-    <div class="grid">
-      <!-- Paquete Consulta -->
-      <div class="pkg">
-        <h3>Paquete Consulta</h3>
-        <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza.</p>
-        <p class="small">Si ninguna de las 3 opciones que se brinden como solución a la petición del cliente son de su agrado, se le devolverá únicamente el 25% del pago realizado.</p>
-        <p class="price">Precio PayPal: <strong>MXN 800*</strong></p>
-        <p class="price">Precio Transferencia: <strong>MXN 780*</strong></p>
-        <p><strong>Tiempo de entrega:</strong> ~5 días*</p>
-        <a class="btn" href="#" onclick="pay('Consulta',800)">Pagar con PayPal</a>
-        <button class="btn ghost" onclick="contactTransfer('Paquete Consulta',780)">Pagar por transferencia</button>
-        <button class="btn convenio-btn" onclick="toggleConvenio('convenioConsulta')">Firmar Convenio</button>
-        <div id="convenioConsulta" class="convenio-desplegable">
-          <img src="logo-ecg.png" alt="Logo ECG" class="firma-logo">
-          <p><strong>Enhorabuena, has adquirido el paquete: Consulta.</strong> Firma el convenio para continuar.</p>
-          <p><strong>Proveedor:</strong> Emanuel Camacho — ECG Nexus</p>
-          <p><strong>Cliente:</strong> <input type="text" class="input-firma" placeholder="Escribe tu nombre"></p>
-          <p><strong>Paquete Contratado:</strong> Consulta</p>
-          <p><strong>Política de devolución:</strong> El cliente confirma estar enterado de que solo se devuelve el 25% si las opciones presentadas no son satisfactorias.</p>
-          <button class="btn" onclick="enviarConvenio('Consulta','convenioConsulta')">Enviar Convenio</button>
-        </div>
-      </div>
-
-      <!-- Paquete Básico -->
-      <div class="pkg">
-        <h3>Paquete Básico</h3>
-        <p>Concepto creativo, guion y documento de entrega. Ideal si buscas una idea profesional sin inversión en plataformas.</p>
-        <p class="small">No hay devoluciones una vez realizado el pago.</p>
-        <p class="price">Precio PayPal: <strong>MXN 1,565.85*</strong></p>
-        <p class="price">Precio Transferencia: <strong>MXN 1,520*</strong></p>
-        <p><strong>Tiempo de entrega:</strong> ~30 días*</p>
-        <a class="btn" href="#" onclick="pay('Básico',1565.85)">Pagar con PayPal</a>
-        <button class="btn ghost" onclick="contactTransfer('Paquete Básico',1520)">Pagar por transferencia</button>
-        <button class="btn convenio-btn" onclick="toggleConvenio('convenioBasico')">Firmar Convenio</button>
-        <div id="convenioBasico" class="convenio-desplegable">
-          <img src="logo-ecg.png" alt="Logo ECG" class="firma-logo">
-          <p><strong>Enhorabuena, has adquirido el paquete: Básico.</strong> Firma el convenio para continuar.</p>
-          <p><strong>Proveedor:</strong> Emanuel Camacho — ECG Nexus</p>
-          <p><strong>Cliente:</strong> <input type="text" class="input-firma" placeholder="Escribe tu nombre"></p>
-          <p><strong>Paquete Contratado:</strong> Básico</p>
-          <div class="revisiones">
-            <p><strong>Revisión 1:</strong> <input type="date"> <input type="time"></p>
-            <p><strong>Revisión 2:</strong> <input type="date"> <input type="time"></p>
-            <p><strong>Revisión 3:</strong> <input type="date"> <input type="time"></p>
-            <p><strong>Revisión 4:</strong> <input type="date"> <input type="time"></p>
-          </div>
-          <p><strong>Compromiso del proveedor:</strong> Entregar avances puntuales, recibir feedback y ajustar el proyecto según lo discutido en cada sesión.</p>
-          <p><strong>Compromiso del cliente:</strong> Asistir a las sesiones y proporcionar retroalimentación clara y oportuna.</p>
-          <button class="btn" onclick="enviarConvenio('Básico','convenioBasico')">Enviar Convenio</button>
-        </div>
-      </div>
-
-      <!-- Paquete Intermedio -->
-      <div class="pkg">
-        <h3>Paquete Intermedio</h3>
-        <p>Incluye inversión para mejoras en plataformas y entregas más rápidas.</p>
-        <p class="small">No hay devoluciones una vez realizado el pago.</p>
-        <p class="price">Precio PayPal: <strong>MXN 4,168.66*</strong></p>
-        <p class="price">Precio Transferencia: <strong>MXN 4,140*</strong></p>
-        <p><strong>Tiempo de entrega:</strong> ~14 días*</p>
-        <a class="btn" href="#" onclick="pay('Intermedio',4168.66)">Pagar con PayPal</a>
-        <button class="btn ghost" onclick="contactTransfer('Paquete Intermedio',4140)">Pagar por transferencia</button>
-        <button class="btn convenio-btn" onclick="toggleConvenio('convenioIntermedio')">Firmar Convenio</button>
-        <div id="convenioIntermedio" class="convenio-desplegable">
-          <img src="logo-ecg.png" alt="Logo ECG" class="firma-logo">
-          <p><strong>Enhorabuena, has adquirido el paquete: Intermedio.</strong> Firma el convenio para continuar.</p>
-          <p><strong>Proveedor:</strong> Emanuel Camacho — ECG Nexus</p>
-          <p><strong>Cliente:</strong> <input type="text" class="input-firma" placeholder="Escribe tu nombre"></p>
-          <p><strong>Paquete Contratado:</strong> Intermedio</p>
-          <div class="revisiones">
-            <p><strong>Revisión 1:</strong> <input type="date"> <input type="time"></p>
-            <p><strong>Revisión 2:</strong> <input type="date"> <input type="time"></p>
-            <p><strong>Revisión 3:</strong> <input type="date"> <input type="time"></p>
-          </div>
-          <p><strong>Compromiso del proveedor:</strong> Entregar avances según cronograma y ajustar el proyecto según feedback de cada sesión.</p>
-          <p><strong>Compromiso del cliente:</strong> Participar activamente y cumplir los horarios acordados.</p>
-          <button class="btn" onclick="enviarConvenio('Intermedio','convenioIntermedio')">Enviar Convenio</button>
-        </div>
-      </div>
-
-      <!-- Paquete Plus -->
-      <div class="pkg">
-        <h3>Paquete Plus</h3>
-        <p>Mejoras constantes, contenido avanzado y entrega prioritaria.</p>
-        <p class="small">No hay devoluciones una vez realizado el pago.</p>
-        <p class="price">Precio PayPal: <strong>MXN 8,333.16*</strong></p>
-        <p class="price">Precio Transferencia: <strong>MXN 8,310*</strong></p>
-        <p><strong>Tiempo de entrega:</strong> ~7 días*</p>
-        <a class="btn" href="#" onclick="pay('Plus',8333.16)">Pagar con PayPal</a>
-        <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
-        <button class="btn convenio-btn" onclick="toggleConvenio('convenioPlus')">Firmar Convenio</button>
-        <div id="convenioPlus" class="convenio-desplegable">
-          <img src="logo-ecg.png" alt="Logo ECG" class="firma-logo">
-          <p><strong>Enhorabuena, has adquirido el paquete: Plus.</strong> Firma el convenio para continuar.</p>
-          <p><strong>Proveedor:</strong> Emanuel Camacho — ECG Nexus</p>
-          <p><strong>Cliente:</strong> <input type="text" class="input-firma" placeholder="Escribe tu nombre"></p>
-          <p><strong>Paquete Contratado:</strong> Plus</p>
-          <div class="revisiones">
-            <p><strong>Revisión 1:</strong> <input type="date"> <input type="time"></p>
-            <p><strong>Revisión 2:</strong> <input type="date"> <input type="time"></p>
-            <p><strong>Revisión 3:</strong> <input type="date"> <input type="time"></p>
-          </div>
-          <p><strong>Compromiso del proveedor:</strong> Entrega de avances continuos y ajustes inmediatos según feedback.</p>
-          <p><strong>Compromiso del cliente:</strong> Asistir a todas las sesiones y proporcionar comentarios claros.</p>
-          <button class="btn" onclick="enviarConvenio('Plus','convenioPlus')">Enviar Convenio</button>
-        </div>
-      </div>
-
+    <p class="slogan">Tus ideas, nuestra pasión por hacerlas realidad</p>
+    <div class="badge-seguridad">
+      <i class="fa fa-lock"></i> Pagos procesados de forma segura — no almacenamos tus datos bancarios
     </div>
-  </section>
+    <div class="banner-real">
+      Somos un proyecto auténtico en crecimiento. Creamos soluciones personalizadas en aplicaciones, chatbots, videos, animaciones, flyers y páginas web para cualquier sector.
+    </div>
+  </header>
 
-  <!-- El resto de tu HTML (Asesor, FAQ, Contacto, Footer) permanece igual -->
+  <main class="container">
+    <!-- Perfil / Sobre mí -->
+    <section class="perfil card block-left">
+      <div class="img-wrapper"><img src="foto.jpg" alt="Emanuel Camacho" class="foto"/></div>
+      <div class="text-wrapper">
+        <h2>Hola — Soy Emanuel</h2>
+        <p>En <strong>ECG Nexus</strong> ayudamos a convertir ideas en proyectos reales, creativos y profesionales — para artistas, profesionistas, empresas y organizaciones de todo tipo.</p>
 
-</main>
+        <div class="trust-box">
+          <h3>Confianza y Transparencia</h3>
+          <ul>
+            <li>Somos un proyecto auténtico, en crecimiento, pero real.</li>
+            <li>Cada servicio se personaliza según tu necesidad.</li>
+            <li>Pagos procesados de forma segura. No almacenamos datos bancarios.</li>
+            <li>Transparencia total: precios y tiempos claros desde el inicio.</li>
+            <li>Comunicamos por correo o WhatsApp directo contigo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paquetes -->
+    <section class="paquetes card">
+      <h2>Nuestros Paquetes</h2>
+      <div class="grid">
+        <div class="pkg">
+          <h3>Paquete Consulta</h3>
+          <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza.</p>
+          <p class="small">Si ninguna de las 3 opciones que se brinden como solución a la petición del cliente son de su agrado, se le devolverá únicamente el 25% del pago realizado.</p>
+          <p class="price">Precio PayPal: <strong>MXN 800*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 780*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~5 días*</p>
+          <a class="btn" href="#" onclick="pay('Consulta',800)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Consulta',780)">Pagar por transferencia</button>
+        </div>
+
+        <div class="pkg">
+          <h3>Paquete Básico</h3>
+          <p>Concepto creativo, guion y documento de entrega. Ideal si buscas una idea profesional sin inversión en plataformas.</p>
+          <p class="small">No hay devoluciones una vez realizado el pago.</p>
+          <p class="price">Precio PayPal: <strong>MXN 1,565.85*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 1,520*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~30 días*</p>
+          <a class="btn" href="#" onclick="pay('Básico',1565.85)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Básico',1520)">Pagar por transferencia</button>
+        </div>
+
+        <div class="pkg">
+          <h3>Paquete Intermedio</h3>
+          <p>Incluye inversión para mejoras en plataformas y entregas más rápidas.</p>
+          <p class="small">No hay devoluciones una vez realizado el pago.</p>
+          <p class="price">Precio PayPal: <strong>MXN 4,168.66*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 4,140*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~14 días*</p>
+          <a class="btn" href="#" onclick="pay('Intermedio',4168.66)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Intermedio',4140)">Pagar por transferencia</button>
+        </div>
+
+        <div class="pkg">
+          <h3>Paquete Plus</h3>
+          <p>Mejoras constantes, contenido avanzado y entrega prioritaria.</p>
+          <p class="small">No hay devoluciones una vez realizado el pago.</p>
+          <p class="price">Precio PayPal: <strong>MXN 8,333.16*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 8,310*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~7 días*</p>
+          <a class="btn" href="#" onclick="pay('Plus',8333.16)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Asesor -->
+    <section class="asesor card block-right">
+      <div class="text-wrapper">
+        <h2>Prueba Nuestro Asesor Legal</h2>
+        <p>Conoce un ejemplo de proyecto que realizamos juntos. Haz clic en el botón para probarlo en vivo:</p>
+        <a class="btn" href="https://musicpreven-spec.github.io/asesor-fronted/" target="_blank">Probar Asesor Legal</a>
+      </div>
+      <div class="img-wrapper"><img src="asesor.png" alt="Asesor Legal"></div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq card">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq-item">
+        <h3>¿Cuánto tardan en entregar mi proyecto?</h3>
+        <p>Depende del volumen de trabajo recibido y el plan que hayas escogido. Te damos un estimado desde el inicio.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Cómo se manejan los pagos?</h3>
+        <p>Se maneja un solo cobro inicial. Los avances como evidencia de trabajo se podrán establecer una vez realizado el depósito. Las fechas quedan establecidas bajo convenio de servicio. <strong>Política de garantía y devolución:</strong> Para el paquete de consulta si después de revisar los 3 proyectos, no queda satisfecho se le devolverá únicamente el 25% del pago realizado; para cualquier otro paquete, no hay devoluciones.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Emitirán factura?</h3>
+        <p>Sólo se emitirá factura si el pago se realiza por medio de PayPal.</p>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto card">
+      <h2>Contacto</h2>
+      <p>📧 Email: <a href="mailto:ecgnexus.contacto@gmail.com">ecgnexus.contacto@gmail.com</a></p>
+      <p>📱 WhatsApp: <span id="whatsapp">5639543241</span></p>
+      <div class="form">
+        <input id="clienteName" placeholder="Tu nombre" />
+        <input id="clienteEmail" placeholder="Tu email" />
+        <input id="clientePhone" placeholder="Tu WhatsApp / teléfono" />
+        <textarea id="clienteMsg" placeholder="Cuéntame tu caso o indica paquete"></textarea>
+        <button class="btn" onclick="sendRequest()">Enviar solicitud</button>
+      </div>
+      <p class="small">Cuando recibo tu solicitud, te responderé por email o WhatsApp con instrucciones y confirmación de pago antes de iniciar el proyecto.</p>
+    </section>
+
+    <footer class="card foot">
+      <p>&copy; <span id="year"></span> ECG Nexus — Todos los derechos reservados</p>
+      <p class="small">RFC: CAGE890312-NZ5</p>
+      <p class="small">
+        Síguenos en 
+        <a href="https://www.instagram.com/musicpreven" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+        <a href="https://www.linkedin.com/in/emanuel-camacho-garcía-9996692a1" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+        <a href="aviso-privacidad.html" target="_blank">Aviso de Privacidad</a>
+      </p>
+    </footer>
+  </main>
 
 <script>
-const CONFIG = { email: 'ecgnexus.contacto@gmail.com', phone: '5639543241', paypalHref: 'https://paypal.me/ECGNexus' };
-document.getElementById('whatsapp').innerText = CONFIG.phone;
-document.getElementById('year').innerText = new Date().getFullYear();
+  const CONFIG = {
+    email: 'ecgnexus.contacto@gmail.com',
+    phone: '5639543241',
+    paypalHref: 'https://paypal.me/ECGNexus'
+  };
+  document.getElementById('whatsapp').innerText = CONFIG.phone;
+  document.getElementById('year').innerText = new Date().getFullYear();
 
-function pay(pack, amount){ const toOpen = CONFIG.paypalHref.endsWith('/') ? CONFIG.paypalHref + amount : CONFIG.paypalHref + '/' + amount; window.open(toOpen, '_blank'); }
-function contactTransfer(pack, amount){ document.getElementById('clienteMsg').value = pack + ' (Pago por transferencia: MXN ' + amount + ')\n\nDescribe tu caso...'; window.scrollTo(0, document.querySelector('.contacto').offsetTop - 20); }
-function sendRequest(){ const name = document.getElementById('clienteName').value.trim(); const email = document.getElementById('clienteEmail').value.trim(); const phone = document.getElementById('clientePhone').value.trim(); const msg = document.getElementById('clienteMsg').value.trim(); if(!name || !email) { alert('Por favor completa al menos tu nombre y email.'); return; } const subject = encodeURIComponent('Solicitud - ' + name); const body = encodeURIComponent('Nombre: ' + name + '\nEmail: ' + email + '\nTel: ' + phone + '\n\n' + msg); window.location.href = 'mailto:' + CONFIG.email + '?subject=' + subject + '&body=' + body; }
+  function pay(pack, amount) {
+    const toOpen = CONFIG.paypalHref.endsWith('/') ? CONFIG.paypalHref + amount : CONFIG.paypalHref + '/' + amount;
+    window.open(toOpen, '_blank');
+  }
 
-// FAQ acordeón
-document.querySelectorAll('.faq-item h3').forEach(item => { item.addEventListener('click', () => { const p = item.nextElementSibling; p.style.display = p.style.display === 'block' ? 'none' : 'block'; }); });
+  function contactTransfer(pack, amount) {
+    document.getElementById('clienteMsg').value = pack + ' (Pago por transferencia: MXN ' + amount + ')\n\nDescribe tu caso...';
+    window.scrollTo(0, document.querySelector('.contacto').offsetTop - 20);
+  }
 
-// Mostrar / ocultar convenio
-function toggleConvenio(id){ const conv = document.getElementById(id); conv.style.display = conv.style.display === 'block' ? 'none' : 'block'; }
+  function sendRequest() {
+    const name = document.getElementById('clienteName').value.trim();
+    const email = document.getElementById('clienteEmail').value.trim();
+    const phone = document.getElementById('clientePhone').value.trim();
+    const msg = document.getElementById('clienteMsg').value.trim();
+    if(!name || !email) { alert('Por favor completa al menos tu nombre y email.'); return; }
+    const subject = encodeURIComponent('Solicitud - ' + name);
+    const body = encodeURIComponent('Nombre: ' + name + '\nEmail: ' + email + '\nTel: ' + phone + '\n\n' + msg);
+    window.location.href = 'mailto:' + CONFIG.email + '?subject=' + subject + '&body=' + body;
+  }
 
-// Enviar convenio (correo + WhatsApp)
-function enviarConvenio(pack, id){
-  const convenio = document.getElementById(id);
-  const cliente = convenio.querySelector('.input-firma').value.trim();
-  if(!cliente){ alert('Por favor ingresa tu nombre para firmar el convenio.'); return; }
-  const bodyText = `Convenio de paquete ${pack}\nCliente: ${cliente}\n\nDetalles del convenio:\n${convenio.innerText}`;
-  const subject = encodeURIComponent('Convenio firmado - ' + pack);
-  // Correo a ECG Nexus
-  window.open(`mailto:ecgnexus.contacto@gmail.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`);
-  // WhatsApp
-  const phone = CONFIG.phone;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(bodyText)}`);
-  alert('Convenio enviado a tu correo, nuestro correo y WhatsApp.');
-}
+  // FAQ acordeón
+  document.querySelectorAll('.faq-item h3').forEach(item => {
+    item.addEventListener('click', () => {
+      const p = item.nextElementSibling;
+      p.style.display = p.style.display === 'block' ? 'none' : 'block';
+    });
+  });
 </script>
 </body>
 </html>

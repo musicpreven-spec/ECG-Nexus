@@ -7,30 +7,24 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Nota: scripts JS los cargamos al final del body para evitar errores DOM -->
 </head>
 <body>
   <header class="top">
-    <div class="logo">
-      <span class="logo-ecg">ECG</span><span class="logo-nexus"> Nexus</span>
-    </div>
+    <div class="logo"><span class="logo-ecg">ECG</span><span class="logo-nexus"> Nexus</span></div>
     <p class="slogan">Tus ideas, nuestra pasión por hacerlas realidad</p>
-    <div class="badge-seguridad">
-      <i class="fa fa-lock"></i> Pagos procesados de forma segura — no almacenamos tus datos bancarios
-    </div>
+    <div class="badge-seguridad"><i class="fa fa-lock"></i> Pagos procesados de forma segura — no almacenamos tus datos bancarios</div>
     <div class="banner-real">
       Somos un proyecto auténtico en crecimiento. Creamos soluciones personalizadas en aplicaciones, chatbots, videos, animaciones, flyers y páginas web para cualquier sector.
     </div>
   </header>
 
   <main class="container">
-    <!-- Perfil / Sobre mí -->
+    <!-- Perfil -->
     <section class="perfil card block-left">
       <div class="img-wrapper"><img src="foto.jpg" alt="Emanuel Camacho" class="foto"/></div>
       <div class="text-wrapper">
         <h2>Hola — Soy Emanuel</h2>
         <p>En <strong>ECG Nexus</strong> ayudamos a convertir ideas en proyectos reales, creativos y profesionales — para artistas, profesionistas, empresas y organizaciones de todo tipo.</p>
-
         <div class="trust-box">
           <h3>Confianza y Transparencia</h3>
           <ul>
@@ -44,55 +38,59 @@
       </div>
     </section>
 
-    <!-- Paquetes -->
+    <!-- Paquetes actualizados -->
     <section class="paquetes card">
-      <h2>Nuestros Paquetes</h2>
-      <div class="grid">
-        <div class="pkg">
-          <h3>Paquete Consulta</h3>
-          <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza.</p>
-          <p class="small">Si ninguna de las 3 opciones que se brinden como solución a la petición del cliente son de su agrado, se le devolverá únicamente el 25% del pago realizado.</p>
-          <p class="price">Precio PayPal: <strong>MXN 800*</strong></p>
-          <p class="price">Precio Transferencia: <strong>MXN 780*</strong></p>
-          <p><strong>Tiempo de entrega:</strong> ~5 días*</p>
-          <a class="btn" href="#" onclick="pay('Consulta',800)">Pagar con PayPal</a>
-          <button class="btn ghost" onclick="contactTransfer('Paquete Consulta',780)">Pagar por transferencia</button>
-        </div>
+  <h2>Nuestros Paquetes</h2>
+  <div class="grid">
+    <div class="pkg">
+      <h3>Paquete Consulta</h3>
+      <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza.</p>
+      <p class="small">Si ninguna de las 3 opciones que se brinden como solución a la petición del cliente son de su agrado, se le devolverá únicamente el 25% del pago realizado.</p>
+      <p class="price">Precio PayPal: <strong>MXN 800*</strong></p>
+      <p class="price">Precio Transferencia: <strong>MXN 780*</strong></p>
+      <p><strong>Tiempo de entrega:</strong> ~5 días*</p>
+      <p><strong>Sesiones de seguimiento:</strong> No aplica</p>
+      <a class="btn" href="#" onclick="pay('Consulta',800)">Pagar con PayPal</a>
+      <button class="btn ghost" onclick="contactTransfer('Paquete Consulta',780)">Pagar por transferencia</button>
+    </div>
 
-        <div class="pkg">
-          <h3>Paquete Básico</h3>
-          <p>Concepto creativo, guion y documento de entrega. Ideal si buscas una idea profesional sin inversión en plataformas.</p>
-          <p class="small">No hay devoluciones una vez realizado el pago.</p>
-          <p class="price">Precio PayPal: <strong>MXN 1,565.85*</strong></p>
-          <p class="price">Precio Transferencia: <strong>MXN 1,520*</strong></p>
-          <p><strong>Tiempo de entrega:</strong> ~30 días*</p>
-          <a class="btn" href="#" onclick="pay('Básico',1565.85)">Pagar con PayPal</a>
-          <button class="btn ghost" onclick="contactTransfer('Paquete Básico',1520)">Pagar por transferencia</button>
-        </div>
+    <div class="pkg">
+      <h3>Paquete Básico</h3>
+      <p>Concepto creativo, guion y documento de entrega.</p>
+      <p class="small">Incluye 4 sesiones de seguimiento vía Zoom durante 1 mes.</p>
+      <p class="small">Cada sesión dura aproximadamente 30–35 minutos y el cliente elige fecha y hora de cada sesión.</p>
+      <p class="price">Precio PayPal: <strong>MXN 1,565.85*</strong></p>
+      <p class="price">Precio Transferencia: <strong>MXN 1,520*</strong></p>
+      <p><strong>Tiempo de entrega:</strong> ~30 días*</p>
+      <a class="btn" href="#" onclick="pay('Básico',1565.85)">Pagar con PayPal</a>
+      <button class="btn ghost" onclick="contactTransfer('Paquete Básico',1520)">Pagar por transferencia</button>
+    </div>
 
-        <div class="pkg">
-          <h3>Paquete Intermedio</h3>
-          <p>Incluye inversión para mejoras en plataformas y entregas más rápidas.</p>
-          <p class="small">No hay devoluciones una vez realizado el pago.</p>
-          <p class="price">Precio PayPal: <strong>MXN 4,168.66*</strong></p>
-          <p class="price">Precio Transferencia: <strong>MXN 4,140*</strong></p>
-          <p><strong>Tiempo de entrega:</strong> ~14 días*</p>
-          <a class="btn" href="#" onclick="pay('Intermedio',4168.66)">Pagar con PayPal</a>
-          <button class="btn ghost" onclick="contactTransfer('Paquete Intermedio',4140)">Pagar por transferencia</button>
-        </div>
+    <div class="pkg">
+      <h3>Paquete Intermedio</h3>
+      <p>Incluye inversión para mejoras en plataformas y entregas más rápidas.</p>
+      <p class="small">Incluye 3 sesiones de seguimiento vía Zoom durante 2 semanas.</p>
+      <p class="small">Cada sesión dura aproximadamente 30–35 minutos y el cliente elige fecha y hora de cada sesión.</p>
+      <p class="price">Precio PayPal: <strong>MXN 4,168.66*</strong></p>
+      <p class="price">Precio Transferencia: <strong>MXN 4,140*</strong></p>
+      <p><strong>Tiempo de entrega:</strong> ~14 días*</p>
+      <a class="btn" href="#" onclick="pay('Intermedio',4168.66)">Pagar con PayPal</a>
+      <button class="btn ghost" onclick="contactTransfer('Paquete Intermedio',4140)">Pagar por transferencia</button>
+    </div>
 
-        <div class="pkg">
-          <h3>Paquete Plus</h3>
-          <p>Mejoras constantes, contenido avanzado y entrega prioritaria.</p>
-          <p class="small">No hay devoluciones una vez realizado el pago.</p>
-          <p class="price">Precio PayPal: <strong>MXN 8,333.16*</strong></p>
-          <p class="price">Precio Transferencia: <strong>MXN 8,310*</strong></p>
-          <p><strong>Tiempo de entrega:</strong> ~7 días*</p>
-          <a class="btn" href="#" onclick="pay('Plus',8333.16)">Pagar con PayPal</a>
-          <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
-        </div>
-      </div>
-    </section>
+    <div class="pkg">
+      <h3>Paquete Plus</h3>
+      <p>Mejoras constantes, contenido avanzado y entrega prioritaria.</p>
+      <p class="small">Incluye 3 sesiones de seguimiento vía Zoom en la misma semana.</p>
+      <p class="small">Cada sesión dura aproximadamente 30–35 minutos y el cliente elige fecha y hora de cada sesión.</p>
+      <p class="price">Precio PayPal: <strong>MXN 8,333.16*</strong></p>
+      <p class="price">Precio Transferencia: <strong>MXN 8,310*</strong></p>
+      <p><strong>Tiempo de entrega:</strong> ~7 días*</p>
+      <a class="btn" href="#" onclick="pay('Plus',8333.16)">Pagar con PayPal</a>
+      <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
+    </div>
+  </div>
+</section>
 
     <!-- Asesor -->
     <section class="asesor card">
@@ -106,7 +104,7 @@
       </div>
     </section>
 
-    <!-- FAQS / Preguntas y Respuestas -->
+    <!-- FAQS -->
     <section class="faqs card">
       <h2>Preguntas Frecuentes</h2>
       <div class="faq-item">
@@ -121,10 +119,9 @@
         <h3>¿Cómo envío mi convenio firmado?</h3>
         <p>Sigue las instrucciones de la sección “Cómo enviar tu convenio firmado” más abajo para que podamos recibirlo correctamente.</p>
       </div>
-      <!-- Puedes añadir más preguntas aquí -->
     </section>
 
-    <!-- Instrucciones claras para enviar el convenio -->
+    <!-- Instrucciones para enviar convenio -->
     <section class="instrucciones card">
       <h2>Cómo enviar tu convenio firmado</h2>
       <ul>
@@ -152,7 +149,7 @@
         
         <div class="revisiones">
           <label>Selecciona tu paquete:</label>
-          <select id="paqueteSelect">
+          <select id="paqueteSelect" onchange="generarFechas()">
             <option value="Consulta">Paquete Consulta</option>
             <option value="Básico">Paquete Básico</option>
             <option value="Intermedio">Paquete Intermedio</option>
@@ -181,11 +178,9 @@
     </footer>
   </main>
 
-  <!-- Scripts al final para asegurar que el DOM ya exista -->
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-
-
-

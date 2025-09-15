@@ -7,71 +7,6 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Badge de seguridad */
-    .badge-seguridad {
-      background-color: #1e40af;
-      color: #fff;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 12px;
-      margin: 10px auto;
-      text-align: center;
-      max-width: 600px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      font-size: 1rem;
-    }
-
-    /* Trust box */
-    .trust-box {
-      border: 2px solid #3b82f6;
-      background-color: #eff6ff;
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .trust-box h3 { color: #1e3a8a; margin-bottom: 10px; }
-    .trust-box li { color: #334155; margin-bottom: 6px; }
-
-    /* Paquetes */
-    .pkg {
-      border-left: 6px solid #1e40af;
-      background-color: #f1f5f9;
-      padding: 15px;
-      border-radius: 10px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      margin-bottom: 15px;
-    }
-    .pkg:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-    .pkg h3 { color: #1e3a8a; margin-bottom: 10px; }
-    .pkg p { color: #475569; }
-
-    /* FAQ estilo acordeón */
-    .faq h2 { color: #0d3b66; margin-bottom: 15px; }
-    .faq-item {
-      border: 1px solid #3b82f6;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      background-color: #f8fafc;
-    }
-    .faq-item h3 {
-      color: #1e3a8a;
-      margin: 0;
-      padding: 10px 15px;
-      cursor: pointer;
-      user-select: none;
-    }
-    .faq-item p {
-      color: #475569;
-      padding: 0 15px 10px 15px;
-      display: none;
-      margin: 0;
-    }
-  </style>
 </head>
 <body>
   <header class="top">
@@ -88,79 +23,84 @@
   </header>
 
   <main class="container">
+    <!-- Perfil / Sobre mí -->
+    <section class="perfil card block-left">
+      <div class="img-wrapper"><img src="foto.jpg" alt="Emanuel Camacho" class="foto"/></div>
+      <div class="text-wrapper">
+        <h2>Hola — Soy Emanuel</h2>
+        <p>En <strong>ECG Nexus</strong> ayudamos a convertir ideas en proyectos reales, creativos y profesionales — para artistas, profesionistas, empresas y organizaciones de todo tipo.</p>
 
-    <!-- perfil / sobre mí -->
-    <section class="perfil card">
-      <img src="foto.jpg" alt="Emanuel Camacho" class="foto"/>
-      <h2>Hola — Soy Emanuel</h2>
-      <p>En <strong>ECG Nexus</strong> ayudamos a convertir ideas en proyectos reales, creativos y profesionales — para artistas, profesionistas, empresas y organizaciones de todo tipo.</p>
-
-      <div class="trust-box">
-        <h3>Confianza y Transparencia</h3>
-        <ul>
-          <li>Somos un proyecto auténtico, en crecimiento, pero real.</li>
-          <li>Cada servicio se personaliza según tu necesidad.</li>
-          <li>Pagos procesados de forma segura. No almacenamos datos bancarios.</li>
-          <li>Transparencia total: precios y tiempos claros desde el inicio.</li>
-          <li>Comunicamos por correo o WhatsApp directo contigo.</li>
-        </ul>
+        <div class="trust-box">
+          <h3>Confianza y Transparencia</h3>
+          <ul>
+            <li>Somos un proyecto auténtico, en crecimiento, pero real.</li>
+            <li>Cada servicio se personaliza según tu necesidad.</li>
+            <li>Pagos procesados de forma segura. No almacenamos datos bancarios.</li>
+            <li>Transparencia total: precios y tiempos claros desde el inicio.</li>
+            <li>Comunicamos por correo o WhatsApp directo contigo.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- paquetes -->
+    <!-- Paquetes -->
     <section class="paquetes card">
       <h2>Nuestros Paquetes</h2>
       <div class="grid">
         <div class="pkg">
           <h3>Paquete Consulta</h3>
-          <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza. Luego podrás hacer el pago de acuerdo al plan que esté dentro de tus posibilidades.</p>
+          <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza.</p>
+          <p class="small">Si ninguna de las 3 opciones que se brinden como solución a la petición del cliente son de su agrado, se le devolverá únicamente el 25% del pago realizado.</p>
           <p class="price">Precio PayPal: <strong>MXN 800*</strong></p>
           <p class="price">Precio Transferencia: <strong>MXN 780*</strong></p>
           <p><strong>Tiempo de entrega:</strong> ~5 días*</p>
-          <p class="small">Política de devolución: 25% únicamente una vez aprobadas las propuestas.</p>
           <a class="btn" href="#" onclick="pay('Consulta',800)">Pagar con PayPal</a>
           <button class="btn ghost" onclick="contactTransfer('Paquete Consulta',780)">Pagar por transferencia</button>
         </div>
+
         <div class="pkg">
           <h3>Paquete Básico</h3>
           <p>Concepto creativo, guion y documento de entrega. Ideal si buscas una idea profesional sin inversión en plataformas.</p>
+          <p class="small">No hay devoluciones una vez realizado el pago.</p>
           <p class="price">Precio PayPal: <strong>MXN 1,565.85*</strong></p>
           <p class="price">Precio Transferencia: <strong>MXN 1,520*</strong></p>
           <p><strong>Tiempo de entrega:</strong> ~30 días*</p>
-          <p class="small">No hay devoluciones una vez realizado el pago.</p>
           <a class="btn" href="#" onclick="pay('Básico',1565.85)">Pagar con PayPal</a>
           <button class="btn ghost" onclick="contactTransfer('Paquete Básico',1520)">Pagar por transferencia</button>
         </div>
+
         <div class="pkg">
           <h3>Paquete Intermedio</h3>
           <p>Incluye inversión para mejoras en plataformas y entregas más rápidas.</p>
+          <p class="small">No hay devoluciones una vez realizado el pago.</p>
           <p class="price">Precio PayPal: <strong>MXN 4,168.66*</strong></p>
           <p class="price">Precio Transferencia: <strong>MXN 4,140*</strong></p>
           <p><strong>Tiempo de entrega:</strong> ~14 días*</p>
-          <p class="small">No hay devoluciones una vez realizado el pago.</p>
           <a class="btn" href="#" onclick="pay('Intermedio',4168.66)">Pagar con PayPal</a>
           <button class="btn ghost" onclick="contactTransfer('Paquete Intermedio',4140)">Pagar por transferencia</button>
         </div>
+
         <div class="pkg">
           <h3>Paquete Plus</h3>
           <p>Mejoras constantes, contenido avanzado y entrega prioritaria.</p>
+          <p class="small">No hay devoluciones una vez realizado el pago.</p>
           <p class="price">Precio PayPal: <strong>MXN 8,333.16*</strong></p>
           <p class="price">Precio Transferencia: <strong>MXN 8,310*</strong></p>
           <p><strong>Tiempo de entrega:</strong> ~7 días*</p>
-          <p class="small">No hay devoluciones una vez realizado el pago.</p>
           <a class="btn" href="#" onclick="pay('Plus',8333.16)">Pagar con PayPal</a>
           <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
         </div>
       </div>
-      <p class="small">*Tiempos de entrega aproximados. Sujetos al pago del paquete y al volumen de trabajo recibido.</p>
-      <p class="small">*Precios calculados para cubrir la comisión estimada de PayPal o comisión mínima de transferencia.</p>
     </section>
 
-    <!-- asesor -->
-    <section class="asesor card">
-      <h2>Prueba Nuestro Asesor Legal</h2>
-      <p>Conoce un ejemplo de proyecto que realizamos juntos. Haz clic en el botón para probarlo en vivo:</p>
-      <a class="btn" href="https://musicpreven-spec.github.io/asesor-fronted/" target="_blank">Probar Asesor Legal</a>
+    <!-- Asesor -->
+    <section class="asesor card block-right">
+      <div class="text-wrapper">
+        <h2>Prueba Nuestro Asesor Legal</h2>
+        <p>Conoce un ejemplo de proyecto que realizamos juntos. Haz clic en el botón para probarlo en vivo:</p>
+        <a class="btn" href="https://musicpreven-spec.github.io/asesor-fronted/" target="_blank">Probar Asesor Legal</a>
+      </div>
+      <div class="img-wrapper"><img src="asesor.png" alt="Asesor Legal"></div>
     </section>
 
     <!-- FAQ -->
@@ -172,7 +112,7 @@
       </div>
       <div class="faq-item">
         <h3>¿Cómo se manejan los pagos?</h3>
-        <p>Se maneja un solo cobro inicial. Los avances como evidencia de trabajo se podrán establecer una vez realizado el depósito. Las fechas quedan establecidas bajo convenio de servicio. Política de garantía: Para Paquete Consulta se devuelve 25% una vez aprobadas las propuestas; para cualquier otro paquete, no hay devoluciones.</p>
+        <p>Se maneja un solo cobro inicial. Los avances como evidencia de trabajo se podrán establecer una vez realizado el depósito. Las fechas quedan establecidas bajo convenio de servicio. <strong>Política de garantía y devolución:</strong> Para el paquete de consulta si después de revisar los 3 proyectos, no queda satisfecho se le devolverá únicamente el 25% del pago realizado; para cualquier otro paquete, no hay devoluciones.</p>
       </div>
       <div class="faq-item">
         <h3>¿Emitirán factura?</h3>
@@ -180,13 +120,11 @@
       </div>
     </section>
 
-    <!-- contacto -->
+    <!-- Contacto -->
     <section class="contacto card">
       <h2>Contacto</h2>
       <p>📧 Email: <a href="mailto:ecgnexus.contacto@gmail.com">ecgnexus.contacto@gmail.com</a></p>
       <p>📱 WhatsApp: <span id="whatsapp">5639543241</span></p>
-
-      <h3>Solicita información o paga por transferencia</h3>
       <div class="form">
         <input id="clienteName" placeholder="Tu nombre" />
         <input id="clienteEmail" placeholder="Tu email" />
@@ -213,7 +151,6 @@
   const CONFIG = {
     email: 'ecgnexus.contacto@gmail.com',
     phone: '5639543241',
-    paypalLinkText: 'https://paypal.me/ECGNexus',
     paypalHref: 'https://paypal.me/ECGNexus'
   };
   document.getElementById('whatsapp').innerText = CONFIG.phone;

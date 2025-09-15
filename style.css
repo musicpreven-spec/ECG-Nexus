@@ -1,3 +1,4 @@
+/* === PRINCIPAL (tu CSS original) === */
 body {
   font-family: 'Montserrat Alternates', sans-serif;
   background: linear-gradient(180deg, #f4f8fb 0%, #ffffff 100%);
@@ -141,6 +142,7 @@ header.top {
   font-weight: bold;
   transition: all 0.3s ease;
   margin-top: 10px;
+  cursor: pointer;
 }
 .btn:hover {
   background-color: #2563eb;
@@ -205,6 +207,7 @@ footer.foot a:hover { text-decoration: underline; }
   display: none;
   margin: 0;
 }
+
 /* Convenios de servicio */
 .convenios h2 {
   color: #0d3b66;
@@ -262,4 +265,51 @@ footer.foot a:hover { text-decoration: underline; }
   width: 100%;
 }
 
+/* ===== NUEVAS REGLAS: Asesor (imagen a la derecha) ===== */
+.asesor {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.asesor .text-wrapper {
+  flex: 1 1 58%;
+  min-width: 260px;
+}
+.asesor .img-wrapper {
+  flex: 0 0 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.asesor .asesor-img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  display: block;
+}
 
+/* Instrucciones estilo card (armonizado) */
+.instrucciones ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #1f2937;
+}
+.instrucciones li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .asesor {
+    flex-direction: column;
+    text-align: center;
+  }
+  .asesor .text-wrapper { order: 1; }
+  .asesor .img-wrapper { order: 2; width: 100%; flex-basis: 100%; }
+  .asesor .asesor-img { max-width: 520px; margin: 0 auto; }
+}

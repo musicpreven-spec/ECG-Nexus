@@ -6,6 +6,33 @@
   <title>ECG Nexus — Tus ideas, nuestra pasión por hacerlas realidad</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Ajustes de color y estilo inline para badge y FAQ */
+    .badge-seguridad {
+      background-color: #1e40af; /* azul oscuro */
+      color: #fff;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin: 10px auto;
+      text-align: center;
+      max-width: 600px;
+    }
+    .faq h2 { color: #0d3b66; }
+    .faq-item h3 { color: #1e3a8a; }
+    .faq-item p { color: #475569; }
+    .pkg { border-left: 5px solid #1e40af; background-color: #f1f5f9; }
+    .trust-box {
+      border: 2px solid #3b82f6;
+      background-color: #eff6ff;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+    .trust-box h3 { color: #1e3a8a; }
+    .trust-box li { color: #334155; margin-bottom: 6px; }
+  </style>
 </head>
 <body>
   <header class="top">
@@ -13,12 +40,17 @@
       <span class="logo-ecg">ECG</span><span class="logo-nexus"> Nexus</span>
     </div>
     <p class="slogan">Tus ideas, nuestra pasión por hacerlas realidad</p>
+    <div class="badge-seguridad">
+      <i class="fa fa-lock"></i> Pagos procesados de forma segura — no almacenamos tus datos bancarios
+    </div>
     <div class="banner-real">
-      Somos un proyecto real en crecimiento. Creamos soluciones personalizadas en aplicaciones, chatbots, videos, animaciones, flyers y páginas web para cualquier sector.
+      Somos un proyecto auténtico en crecimiento. Creamos soluciones personalizadas en aplicaciones, chatbots, videos, animaciones, flyers y páginas web para cualquier sector.
     </div>
   </header>
 
   <main class="container">
+
+    <!-- perfil / sobre mí -->
     <section class="perfil card">
       <img src="foto.jpg" alt="Emanuel Camacho" class="foto"/>
       <h2>Hola — Soy Emanuel</h2>
@@ -41,6 +73,15 @@
     <section class="paquetes card">
       <h2>Nuestros Paquetes</h2>
       <div class="grid">
+        <div class="pkg">
+          <h3>Paquete Consulta</h3>
+          <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza. Luego podrás hacer el pago de acuerdo al plan que esté dentro de tus posibilidades.</p>
+          <p class="price">Precio PayPal: <strong>MXN 800*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 780*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~5 días*</p>
+          <a class="btn" href="#" onclick="pay('Consulta',800)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Consulta',780)">Pagar por transferencia</button>
+        </div>
         <div class="pkg">
           <h3>Paquete Básico</h3>
           <p>Concepto creativo, guion y documento de entrega. Ideal si buscas una idea profesional sin inversión en plataformas.</p>
@@ -80,19 +121,30 @@
       <a class="btn" href="https://musicpreven-spec.github.io/asesor-fronted/" target="_blank">Probar Asesor Legal</a>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq card">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq-item">
+        <h3>¿Cuánto tardan en entregar mi proyecto?</h3>
+        <p>Depende del volumen de trabajo recibido y el plan que hayas escogido. Te damos un estimado desde el inicio.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Cómo se manejan los pagos?</h3>
+        <p>Se maneja un solo cobro inicial. Los avances como evidencia de trabajo se podrán establecer una vez realizado el depósito. Las fechas quedan establecidas bajo convenio de servicio. Política de garantía: devolvemos el 50% de lo pagado por el cliente según el paquete adquirido.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Emitirán factura?</h3>
+        <p>Sólo se emitirá factura si el pago se realiza por medio de PayPal.</p>
+      </div>
+    </section>
+
     <!-- contacto -->
     <section class="contacto card">
-      <h2>Contacto y pagos</h2>
+      <h2>Contacto</h2>
       <p>📧 Email: <a href="mailto:ecgnexus.contacto@gmail.com">ecgnexus.contacto@gmail.com</a></p>
       <p>📱 WhatsApp: <span id="whatsapp">5639543241</span></p>
 
-      <h3>Pago por PayPal (recomendado)</h3>
-      <p>Usa mi enlace PayPal: <strong id="paypalLink">https://paypal.me/ECGNexus</strong></p>
-      <p class="small">Pagos procesados de forma segura a través de PayPal. No guardamos tus datos bancarios.</p>
-
-      <h3>Pago por transferencia / depósito directo</h3>
-      <p class="small">Si prefieres depósito o transferencia, completa el formulario y te enviaré los datos de mi CLABE o cuenta bancaria.</p>
-
+      <h3>Solicita información o paga por transferencia</h3>
       <div class="form">
         <input id="clienteName" placeholder="Tu nombre" />
         <input id="clienteEmail" placeholder="Tu email" />
@@ -106,7 +158,12 @@
     <footer class="card foot">
       <p>&copy; <span id="year"></span> ECG Nexus — Todos los derechos reservados</p>
       <p class="small">RFC: CAGE890312-NZ5</p>
-      <p class="small">Síguenos en <a href="https://www.instagram.com/musicpreven" target="_blank">Instagram</a> | <a href="https://www.linkedin.com/in/emanuel-camacho-garcía-9996692a1" target="_blank">LinkedIn</a> | <a href="aviso-privacidad.html" target="_blank">Aviso de Privacidad</a></p>
+      <p class="small">
+        Síguenos en 
+        <a href="https://www.instagram.com/musicpreven" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+        <a href="https://www.linkedin.com/in/emanuel-camacho-garcía-9996692a1" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+        <a href="aviso-privacidad.html" target="_blank">Aviso de Privacidad</a>
+      </p>
     </footer>
   </main>
 
@@ -118,8 +175,6 @@
     paypalHref: 'https://paypal.me/ECGNexus'
   };
   document.getElementById('whatsapp').innerText = CONFIG.phone;
-  document.getElementById('paypalLink').innerText = CONFIG.paypalLinkText;
-  document.getElementById('paypalLink').href = CONFIG.paypalHref;
   document.getElementById('year').innerText = new Date().getFullYear();
 
   function pay(pack, amount) {

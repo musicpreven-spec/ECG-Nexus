@@ -7,8 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="script.js"></script>
+  <!-- Nota: scripts JS los cargamos al final del body para evitar errores DOM -->
 </head>
 <body>
   <header class="top">
@@ -25,7 +24,7 @@
   </header>
 
   <main class="container">
-    <!-- Perfil -->
+    <!-- Perfil / Sobre mí -->
     <section class="perfil card block-left">
       <div class="img-wrapper"><img src="foto.jpg" alt="Emanuel Camacho" class="foto"/></div>
       <div class="text-wrapper">
@@ -45,49 +44,94 @@
       </div>
     </section>
 
-    <!-- Paquetes -->
-    … (igual que antes) …
+    <!-- Paquetes (igual que antes) -->
+    <section class="paquetes card">
+      <h2>Nuestros Paquetes</h2>
+      <div class="grid">
+        <div class="pkg">
+          <h3>Paquete Consulta</h3>
+          <p>Consulta inicial para definir tu proyecto. Se ofrecerán 3 opciones distintas y podrás elegir la que más te convenza.</p>
+          <p class="small">Si ninguna de las 3 opciones que se brinden como solución a la petición del cliente son de su agrado, se le devolverá únicamente el 25% del pago realizado.</p>
+          <p class="price">Precio PayPal: <strong>MXN 800*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 780*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~5 días*</p>
+          <a class="btn" href="#" onclick="pay('Consulta',800)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Consulta',780)">Pagar por transferencia</button>
+        </div>
 
-    <!-- Asesor (oculto) -->
-    <section class="asesor card block-right" style="display:none;">
-      <div class="text-wrapper">
-        <h2>Prueba Nuestro Asesor Legal</h2>
-        <p>Conoce un ejemplo de proyecto que realizamos juntos. Haz clic en el botón para probarlo en vivo:</p>
-        <a class="btn" href="https://musicpreven-spec.github.io/asesor-fronted/" target="_blank">Probar Asesor Legal</a>
+        <div class="pkg">
+          <h3>Paquete Básico</h3>
+          <p>Concepto creativo, guion y documento de entrega. Ideal si buscas una idea profesional sin inversión en plataformas.</p>
+          <p class="small">No hay devoluciones una vez realizado el pago.</p>
+          <p class="price">Precio PayPal: <strong>MXN 1,565.85*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 1,520*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~30 días*</p>
+          <a class="btn" href="#" onclick="pay('Básico',1565.85)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Básico',1520)">Pagar por transferencia</button>
+        </div>
+
+        <div class="pkg">
+          <h3>Paquete Intermedio</h3>
+          <p>Incluye inversión para mejoras en plataformas y entregas más rápidas.</p>
+          <p class="small">No hay devoluciones una vez realizado el pago.</p>
+          <p class="price">Precio PayPal: <strong>MXN 4,168.66*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 4,140*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~14 días*</p>
+          <a class="btn" href="#" onclick="pay('Intermedio',4168.66)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Intermedio',4140)">Pagar por transferencia</button>
+        </div>
+
+        <div class="pkg">
+          <h3>Paquete Plus</h3>
+          <p>Mejoras constantes, contenido avanzado y entrega prioritaria.</p>
+          <p class="small">No hay devoluciones una vez realizado el pago.</p>
+          <p class="price">Precio PayPal: <strong>MXN 8,333.16*</strong></p>
+          <p class="price">Precio Transferencia: <strong>MXN 8,310*</strong></p>
+          <p><strong>Tiempo de entrega:</strong> ~7 días*</p>
+          <a class="btn" href="#" onclick="pay('Plus',8333.16)">Pagar con PayPal</a>
+          <button class="btn ghost" onclick="contactTransfer('Paquete Plus',8310)">Pagar por transferencia</button>
+        </div>
       </div>
-      <div class="img-wrapper"><img src="asesor.png" alt="Asesor Legal"></div>
     </section>
 
-    <!-- Contacto -->
+    <!-- Asesor: texto izquierda, imagen derecha (imagen: asesor.png) -->
+    <section class="asesor card">
+      <div class="text-wrapper">
+        <h2>Prueba Nuestro Asesor</h2>
+        <p>Conoce un ejemplo de proyecto que realizamos. Haz clic en el botón para probarlo en vivo:</p>
+        <a class="btn" href="https://musicpreven-spec.github.io/asesor-fronted/" target="_blank" rel="noopener">Probar Asesor Legal</a>
+      </div>
+      <div class="img-wrapper">
+        <img src="asesor.png" alt="Asesor — ECG Nexus" class="asesor-img" loading="lazy">
+      </div>
+    </section>
+
+    <!-- Instrucciones claras para enviar el convenio -->
+    <section class="instrucciones card">
+      <h2>Cómo enviar tu convenio firmado</h2>
+      <ul>
+        <li>1) Descarga el PDF del convenio con <strong>Firmar Convenio</strong>.</li>
+        <li>2) Envía un correo a: <strong>ecgnexus.contacto@gmail.com</strong>.</li>
+        <li>3) En el <strong>asunto</strong> escribe exactamente: <em>Convenio – Nombre Apellido</em>.</li>
+        <li>4) En el <strong>cuerpo del correo</strong> escribe: <br>
+            <em>Mi nombre es: Nombre Apellido<br>Paquete: Básico / Intermedio / Plus</em>
+        </li>
+        <li>5) Adjunta <strong>únicamente</strong> el archivo en formato <strong>PDF</strong> (no se aceptan otros formatos).</li>
+        <li>6) Una vez enviado, te responderemos por correo confirmando la recepción.</li>
+      </ul>
+    </section>
+
+    <!-- Contacto (formulario en la página) -->
     <section class="contacto card">
       <h2>Contacto</h2>
       <p>📧 Email: <a href="mailto:ecgnexus.contacto@gmail.com">ecgnexus.contacto@gmail.com</a></p>
       <p>📱 WhatsApp: <span id="whatsapp">5639543241</span></p>
-
-      <!-- BLOQUE NUEVO DE INSTRUCCIONES -->
-      <div class="card" style="background:#f0f7ff; border-left:6px solid #3b82f6; margin-top:15px;">
-        <h3>📩 Instrucciones para enviar tu convenio firmado</h3>
-        <ul style="font-size:0.95em;">
-          <li>Asunto del correo: <strong>Convenio – Nombre Apellido</strong></li>
-          <li>Cuerpo del correo:
-            <ul>
-              <li>Mi nombre es: <em>Nombre Apellido</em></li>
-              <li>Paquete: <em>Básico / Intermedio / Plus</em></li>
-            </ul>
-          </li>
-          <li>Adjuntar únicamente el archivo del convenio en formato <strong>PDF</strong> (no se aceptará otro formato).</li>
-          <li>Enviar a: <strong>ecgnexus.contacto@gmail.com</strong></li>
-          <li>Recibirás un correo de confirmación cuando tu convenio sea recibido.</li>
-        </ul>
-      </div>
-      <!-- FIN BLOQUE NUEVO -->
-
       <div class="form">
         <input id="clienteName" placeholder="Tu nombre" />
         <input id="clienteEmail" placeholder="Tu email" />
         <input id="clientePhone" placeholder="Tu WhatsApp / teléfono" />
         <textarea id="clienteMsg" placeholder="Cuéntame tu caso o indica paquete"></textarea>
-
+        
         <div class="revisiones">
           <label>Selecciona tu paquete:</label>
           <select id="paqueteSelect">
@@ -96,52 +140,33 @@
             <option value="Intermedio">Paquete Intermedio</option>
             <option value="Plus">Paquete Plus</option>
           </select>
+
           <div id="fechasContainer"></div>
         </div>
 
         <button class="btn" onclick="generarConvenio()">Firmar Convenio</button>
+        <button class="btn ghost" onclick="openEmailForConvenio()">Abrir correo para enviar convenio</button>
         <button class="btn" onclick="sendRequest()">Enviar solicitud</button>
       </div>
+      <p class="small">Cuando recibo tu solicitud, te responderé por email o WhatsApp con instrucciones y confirmación de pago antes de iniciar el proyecto.</p>
     </section>
 
     <footer class="card foot">
-      … (igual que antes) …
+      <p>&copy; <span id="year"></span> ECG Nexus — Todos los derechos reservados</p>
+      <p class="small">RFC: CAGE890312-NZ5</p>
+      <p class="small">
+        Síguenos en 
+        <a href="https://www.instagram.com/musicpreven" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+        <a href="https://www.linkedin.com/in/emanuel-camacho-garcía-9996692a1" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+        <a href="aviso-privacidad.html" target="_blank">Aviso de Privacidad</a>
+      </p>
     </footer>
   </main>
 
-  <script>
-    const CONFIG = {
-      email: 'ecgnexus.contacto@gmail.com',
-      phone: '5639543241',
-      paypalHref: 'https://paypal.me/ECGNexus'
-    };
-    document.getElementById('whatsapp').innerText = CONFIG.phone;
-    document.getElementById('year').innerText = new Date().getFullYear();
-    function pay(pack, amount) {
-      const toOpen = CONFIG.paypalHref.endsWith('/') ? CONFIG.paypalHref + amount : CONFIG.paypalHref + '/' + amount;
-      window.open(toOpen, '_blank');
-    }
-    function contactTransfer(pack, amount) {
-      document.getElementById('clienteMsg').value = pack + ' (Pago por transferencia: MXN ' + amount + ')\n\nDescribe tu caso...';
-      window.scrollTo(0, document.querySelector('.contacto').offsetTop - 20);
-    }
-    function sendRequest() {
-      const name = document.getElementById('clienteName').value.trim();
-      const email = document.getElementById('clienteEmail').value.trim();
-      const phone = document.getElementById('clientePhone').value.trim();
-      const msg = document.getElementById('clienteMsg').value.trim();
-      if(!name || !email) { alert('Por favor completa al menos tu nombre y email.'); return; }
-      const subject = encodeURIComponent('Solicitud - ' + name);
-      const body = encodeURIComponent('Nombre: ' + name + '\nEmail: ' + email + '\nTel: ' + phone + '\n\n' + msg);
-      window.location.href = 'mailto:' + CONFIG.email + '?subject=' + subject + '&body=' + body;
-    }
-    // FAQ acordeón
-    document.querySelectorAll('.faq-item h3').forEach(item => {
-      item.addEventListener('click', () => {
-        const p = item.nextElementSibling;
-        p.style.display = p.style.display === 'block' ? 'none' : 'block';
-      });
-    });
-  </script>
+  <!-- Scripts al final para asegurar que el DOM ya exista -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+
+

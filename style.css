@@ -185,7 +185,7 @@ footer.foot {
 footer.foot a { color: #ffd700; text-decoration: none; }
 footer.foot a:hover { text-decoration: underline; }
 
-/* FAQ estilo acordeón */
+/* === FAQ estilo acordeón (resuelto: respuestas siempre visibles) === */
 .faq-item {
   border: 1px solid #3b82f6;
   border-radius: 12px;
@@ -194,19 +194,28 @@ footer.foot a:hover { text-decoration: underline; }
   transition: transform 0.2s ease;
 }
 .faq-item:hover { transform: translateY(-2px); }
-.faq-item h3 {
-  color: #0d3b66;
-  margin: 0;
+
+/* pregunta (encabezado) */
+.faq-question {
+  font-weight: bold;
+  margin-top: 12px;
   padding: 12px 18px;
   cursor: pointer;
-  user-select: none;
 }
-.faq-item p {
+
+/* respuesta: aseguramos que el contenedor y los párrafos sean visibles */
+.faq-answer {
+  display: block; /* el contenedor visible */
+  padding: 8px 18px;
+  line-height: 1.5;
   color: #333;
-  padding: 0 18px 12px 18px;
-  display: none;
+  margin-bottom: 12px;
+}
+.faq-answer p {
+  display: block; /* los párrafos ahora también visibles */
   margin: 0;
 }
+
 
 /* Convenios de servicio */
 .convenios h2 {
@@ -323,3 +332,4 @@ footer.foot a:hover { text-decoration: underline; }
   font-weight: bold;
   margin-top: 12px;
 }
+

@@ -154,10 +154,29 @@ function generarConvenio() {
 // Abrir correo prellenado
 function openEmailForConvenio() {
   const nombre = document.getElementById('clienteName').value || 'Cliente';
-  const subject = encodeURIComponent(`Convenio – ${nombre}`);
-  const body = encodeURIComponent(`Hola,\n\nAdjunto mi convenio firmado.\n\nNombre: ${nombre}`);
-  window.location.href = `mailto:ecgnexus.contacto@gmail.com?subject=${subject}&body=${body}`;
+  const subject = `Convenio – ${nombre}`;
+  const body = `Hola,\n\nAdjunto mi convenio firmado.\n\nNombre: ${nombre}`;
+
+  const mailto = `mailto:ecgnexus.contacto@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  // Intento principal (la mayoría de navegadores lanzan el cliente de correo con esto)
+  window.location.href = mailto;
+
+  // Fallback: intentar abrir en nueva ventana (algunos navegadores prefieren esto)
+  setTimeout(() => {
+    try {
+      const a = document.createElement('a');
+      a.href = mailto;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch (e) {
+      console.error('No se pudo abrir el mailto con el fallback:', e);
+    }
+  }, 150);
 }
+
 
 // Enviar solicitud mediante EmailJS
 function sendRequest() {
@@ -187,6 +206,7 @@ function sendRequest() {
 
 // Ejecutar al cargar la página
 window.onload = generarFechas;
+
 
 
 

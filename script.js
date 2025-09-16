@@ -1,3 +1,21 @@
+// --- FAQS / Desplegar respuestas ---
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+  });
+});
+
+// --- Función PayPal ---
+function pay(paquete, monto){
+  alert(`Redirigiendo a PayPal para pagar ${paquete} por MXN ${monto}`);
+  // Aquí puedes integrar la API de PayPal si quieres el flujo real
+}
+
+// --- Función pago por transferencia ---
+function contactTransfer(paquete, monto){
+  alert(`Por favor realiza tu pago de ${paquete} por MXN ${monto} mediante transferencia y envía el comprobante a nuestro correo.`);
+}
 // Inicializar EmailJS
 emailjs.init("vcMhNz-ZzWxxICicN"); // reemplaza con tu user ID de EmailJS
 
@@ -173,6 +191,7 @@ function sendRequest() {
 
 // Ejecutar al cargar la página
 window.onload = generarFechas;
+
 
 
 

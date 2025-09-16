@@ -152,6 +152,7 @@ function generarConvenio() {
 }
 
 // Abrir correo prellenado
+// Reemplaza la función actual por esta versión más robusta
 function openEmailForConvenio() {
   const nombre = document.getElementById('clienteName').value || 'Cliente';
   const subject = `Convenio – ${nombre}`;
@@ -159,22 +160,37 @@ function openEmailForConvenio() {
 
   const mailto = `mailto:ecgnexus.contacto@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-  // Intento principal (la mayoría de navegadores lanzan el cliente de correo con esto)
-  window.location.href = mailto;
+  // Intento 1: abrir con location (normalmente funciona)
+  try {
+    window.location.href = mailto;
+  } catch (e) {
+    console.warn('Intento window.location falló:', e);
+  }
 
-  // Fallback: intentar abrir en nueva ventana (algunos navegadores prefieren esto)
+  // Intento 2: forzar mediante un <a> (fallback)
   setTimeout(() => {
     try {
       const a = document.createElement('a');
       a.href = mailto;
+      a.target = '_blank';
+      a.rel = 'noopener';
       a.style.display = 'none';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
     } catch (e) {
-      console.error('No se pudo abrir el mailto con el fallback:', e);
+      console.error('Fallback con <a> falló:', e);
     }
   }, 150);
+
+  // Mensaje informativo (no obligatorio): si no se abre, mostrar guía corta al usuario
+  setTimeout(() => {
+    // Si el usuario tiene un cliente configurado, lo ideal ya se abrió;
+    // de lo contrario no podemos forzar la apertura por políticas del navegador.
+    // Mostramos un aviso sutil con instrucciones.
+    // (Puedes quitar este alert si no quieres notificaciones.)
+    // alert('Si no se abre tu correo, revisa la configuración de manejadores/protocolos en Chrome o en tu sistema. Si quieres, te doy los pasos.');
+  }, 600);
 }
 
 
@@ -206,6 +222,7 @@ function sendRequest() {
 
 // Ejecutar al cargar la página
 window.onload = generarFechas;
+
 
 
 

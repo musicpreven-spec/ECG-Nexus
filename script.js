@@ -1,15 +1,11 @@
-// --- FAQS / Desplegar respuestas ---
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const answer = btn.nextElementSibling;
-    answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
-  });
-});
-
-// --- Función PayPal ---
 function pay(paquete, monto){
+  // muestra aviso
   alert(`Redirigiendo a PayPal para pagar ${paquete} por MXN ${monto}`);
-  // Aquí puedes integrar la API de PayPal si quieres el flujo real
+  // abre nueva ventana con tu enlace PayPal
+  window.open(
+    `https://www.paypal.com/paypalme/ECGNexus/${monto}`, // sustituye TUUSUARIO
+    '_blank'
+  );
 }
 
 // --- Función pago por transferencia ---
@@ -191,6 +187,7 @@ function sendRequest() {
 
 // Ejecutar al cargar la página
 window.onload = generarFechas;
+
 
 
 

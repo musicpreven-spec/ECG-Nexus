@@ -313,3 +313,13 @@ footer.foot a:hover { text-decoration: underline; }
   .asesor .img-wrapper { order: 2; width: 100%; flex-basis: 100%; }
   .asesor .asesor-img { max-width: 520px; margin: 0 auto; }
 }
+/* === FAQ visibles === */
+.faq-answer {
+  display: block; /* siempre visibles */
+  padding: 8px 0;
+  line-height: 1.5;
+}
+.faq-question {
+  font-weight: bold;
+  margin-top: 12px;
+}

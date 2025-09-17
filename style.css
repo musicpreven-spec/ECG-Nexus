@@ -339,3 +339,18 @@ footer.foot a:hover { text-decoration: underline; }
   align-items: center;       /* Centra verticalmente imagen y texto */
   gap: 10px;                 /* Espacio entre logo e "ECG Nexus" */
 }
+
+/* Imagen del logo */
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+/* Texto del logo centrado */
+.logo-text {
+  flex: 1; /* hace que ocupe todo el ancho disponible */
+  text-align: center; /* centra horizontalmente el texto */
+  font-size: 3rem; /* hazlo tan grande como quieras (3rem es más grande que 2rem) */
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
+}

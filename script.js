@@ -1,7 +1,7 @@
 function pay(paquete, monto){
   // muestra aviso
   alert(`Redirigiendo a PayPal para pagar ${paquete} por MXN ${monto}`);
-  // abre nueva ventana con tu enlace PayPal
+  let url = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=https://paypal.me/ECGNexus&item_name=${paquete}&amount=${precio}&currency_code=MXN`;
   window.open(
     `https://www.paypal.com/paypalme/ECGNexus/${monto}`, // sustituye TUUSUARIO
     '_blank'
@@ -372,6 +372,7 @@ function sendRequest() {
 
 // Ejecutar al cargar la página
 window.onload = generarFechas;
+
 
 
 

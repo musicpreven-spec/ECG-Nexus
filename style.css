@@ -354,3 +354,40 @@ footer.foot a:hover { text-decoration: underline; }
   font-family: 'Montserrat Alternates', sans-serif;
   font-weight: bold;
 }
+
+/* === LOGO: imagen + texto centrado, con 'ECG' en amarillo === */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Imagen del logo (izquierda) */
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+/* Texto del logo: ocupa el espacio restante y queda centrado */
+.logo-text {
+  flex: 1;                 /* ocupa todo el ancho restante */
+  text-align: center;      /* centra el texto horizontalmente */
+  font-size: 3rem;         /* ajusta el tamaño grande del nombre */
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;          /* color por defecto (Nexus será blanco) */
+}
+
+/* Color específico para cada parte del nombre */
+.logo-text .logo-ecg {
+  color: #ffd700;          /* amarillo (ECG) */
+}
+.logo-text .logo-nexus {
+  color: #ffffff;          /* blanco (Nexus) */
+}
+
+/* Opcional: si el encabezado tiene padding grande, ajusta verticalmente */
+@media (min-width: 720px) {
+  .logo-img { height: 56px; } /* si quieres el logo un poco más grande en pantallas grandes */
+}

@@ -333,3 +333,9 @@ footer.foot a:hover { text-decoration: underline; }
   margin-top: 12px;
 }
 
+/* === LOGO === */
+.logo-container {
+  display: flex;             /* Coloca imagen y texto en la misma fila */
+  align-items: center;       /* Centra verticalmente imagen y texto */
+  gap: 10px;                 /* Espacio entre logo e "ECG Nexus" */
+}
